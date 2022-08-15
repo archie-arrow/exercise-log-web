@@ -1,0 +1,43 @@
+<h1 class="title">Create an account</h1>
+<h2 class="subtitle">Let’s start track your goal</h2>
+
+<form class="form" action="" [formGroup]="registerForm">
+
+  <div class="form-field">
+    <label>Name</label>
+    <input formControlName="name"
+           type="text"
+           pInputText>
+  </div>
+
+  <div class="form-field">
+    <label>Email</label>
+    <input formControlName="email"
+           type="text"
+           pInputText>
+  </div>
+
+  <div class="form-field">
+    <label>Password</label>
+    <input formControlName="password"
+           type="text"
+           pInputText>
+  </div>
+
+  <div class="form-field">
+    <label>Confirm password</label>
+    <input formControlName="confirm"
+           type="text"
+           pInputText>
+  </div>
+
+  <div class="actions">
+    <button pButton label="Sign Up"></button>
+  </div>
+
+  <div class="link">
+    Already have an account?
+    <span routerLink="login">Log In</span>
+  </div>
+</form>
+

@@ -1,0 +1,23 @@
+@import "../variable";
+
+.p-button {
+  background-color: $primary-300;
+  border: 1px solid $primary-300;
+  font-family: 'SF-Pro-Rounded', sans-serif;
+  font-weight: 400;
+
+  &:enabled:hover {
+    background-color: $primary-200;
+    border: 1px solid $primary-200;
+  }
+
+  &:focus {
+    box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px $primary-400, 0 1px 2px 0 black;
+  }
+
+  .p-button:enabled:active {
+    background: $primary-100;
+    color: $light-400;
+    border-color: $primary-100;
+  }
+}

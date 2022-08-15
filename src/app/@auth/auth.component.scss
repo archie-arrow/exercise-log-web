@@ -1,3 +1,5 @@
+@import "variable";
+
 .auth {
   display: flex;
   height: 100vh;
@@ -9,7 +11,7 @@
     flex-direction: column;
     justify-content: space-between;
     color: #fff;
-    width: 100%;
+    width: 60vw;
     padding: 3.875rem;
     background-image: url("../../assets/images/auth-bg.jpg");
     background-position: center center;
@@ -36,11 +38,12 @@
   }
 
   .content {
-    padding: 5rem;
+    padding: 1.25rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    max-width: 36rem;
-    width: 100%;
+    width: 40vw;
+    background-color: $light-300;
   }
 }
+

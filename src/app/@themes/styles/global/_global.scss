@@ -1,7 +1,8 @@
 @import 'fonts';
-@import "auth";
+@import 'p-button';
+@import 'p-input';
 
-body {
-  font-family: 'Roboto', sans-serif;
+* {
+  font-family: 'SF-Pro-Rounded', sans-serif;
   font-weight: 400;
 }
