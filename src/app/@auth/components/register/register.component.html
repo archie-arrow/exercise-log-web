@@ -8,6 +8,7 @@
     <input formControlName="name"
            type="text"
            pInputText>
+    <app-error-message [control]="registerForm.controls.name"></app-error-message>
   </div>
 
   <div class="form-field">
@@ -15,24 +16,27 @@
     <input formControlName="email"
            type="text"
            pInputText>
+    <app-error-message [control]="registerForm.controls.email"></app-error-message>
   </div>
 
   <div class="form-field">
     <label>Password</label>
     <input formControlName="password"
-           type="text"
+           type="password"
            pInputText>
+    <app-error-message [control]="registerForm.controls.password"></app-error-message>
   </div>
 
   <div class="form-field">
     <label>Confirm password</label>
-    <input formControlName="confirm"
-           type="text"
+    <input formControlName="confirmPassword"
+           type="password"
            pInputText>
+    <app-error-message *ngIf="registerForm.controls.confirmPassword.touched" [control]="registerForm"></app-error-message>
   </div>
 
   <div class="actions">
-    <button pButton label="Sign Up"></button>
+    <button [disabled]="registerForm.invalid" pButton label="Sign Up"></button>
   </div>
 
   <div class="link">
@@ -40,4 +44,3 @@
     <span routerLink="login">Log In</span>
   </div>
 </form>
-

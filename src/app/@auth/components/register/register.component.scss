@@ -30,24 +30,6 @@
   color: $light-100;
 }
 
-.form-field {
-    display: flex;
-    flex-direction: column;
-
-    label {
-      font-weight: 500;
-      font-size: 0.875rem;
-      line-height: 1.063rem;
-      margin-bottom: 0.5rem;
-      margin-left: 0.25rem;
-    }
-
-    input {
-      width: 26rem;
-      margin-bottom: 0.5rem;
-    }
-}
-
 .actions {
   margin: 1.5rem 0;
 
