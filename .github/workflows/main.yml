@@ -45,4 +45,4 @@ jobs:
         with:  
                TOKEN: ${{ secrets.GITHUB_TOKEN }}
                BRANCH: gh-pages  
-               FOLDER: dist/car-bro
+               FOLDER: dist/exercise-log
