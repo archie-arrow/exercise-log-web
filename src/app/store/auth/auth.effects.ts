@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { catchError, map, of, switchMap } from 'rxjs';
+import { AuthInterface } from 'src/app/@auth/interfaces /auth.interface';
 import { RegisterInterface } from 'src/app/@auth/interfaces /register.interface';
 import { AuthApiService } from 'src/app/@auth/services /auth.api.service';
 import {
@@ -20,7 +21,10 @@ export class AuthEffects {
       ofType(AuthActionsTypes.Register),
       switchMap((action: { register: RegisterInterface }) =>
         this.authApiService.register(action.register).pipe(
-          map(() => RegisterSuccess()),
+          map((data: AuthInterface) => {
+            localStorage.setItem('token', data.token);
+            return RegisterSuccess();
+          }),
           catchError(() => of(RegisterError())),
         ),
       ),
