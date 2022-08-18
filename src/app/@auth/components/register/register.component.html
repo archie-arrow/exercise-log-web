@@ -36,7 +36,13 @@
   </div>
 
   <div class="actions">
-    <button [disabled]="registerForm.invalid" pButton label="Sign Up"></button>
+    <button
+      [disabled]="registerForm.invalid || (isLoading$ | async)"
+      [appSpinner]="isLoading$ | async"
+      (click)="register()"
+      pButton
+      [label]="(isLoading$ | async) ? ' ' : 'Sign Up'"
+    ></button>
   </div>
 
   <div class="link">

@@ -1,6 +1,10 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Store } from '@ngrx/store';
 import { comparePasswordsValidator, EMAIL_REGEX } from 'src/app/@auth/validators';
+import { AppState } from 'src/app/store/app.reducer';
+import { Register } from 'src/app/store/auth/auth.actions';
+import { selectAuthPending } from 'src/app/store/auth/auth.selectors';
 
 export interface RegisterFormInterface {
   name: FormControl<string>;
@@ -37,5 +41,12 @@ export class RegisterComponent {
     [comparePasswordsValidator],
   );
 
-  constructor() {}
+  isLoading$ = this.store.select(selectAuthPending);
+
+  constructor(private store: Store<AppState>) {}
+
+  register(): void {
+    const form = this.registerForm.getRawValue();
+    this.store.dispatch(Register({ register: form }));
+  }
 }
