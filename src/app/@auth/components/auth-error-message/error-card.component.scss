@@ -1,0 +1,14 @@
+@import "variable";
+
+.error-card {
+  border: solid 0.125rem $primary-300;
+  border-radius: 0.6rem;
+  padding: 1rem;
+  margin-bottom: 1rem;
+
+  .error-title {
+    font-weight: bold;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+}

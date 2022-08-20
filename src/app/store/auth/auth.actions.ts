@@ -17,7 +17,10 @@ export const Register = createAction(
 
 export const RegisterSuccess = createAction(AuthActionsTypes.RegisterSuccess);
 
-export const RegisterError = createAction(AuthActionsTypes.RegisterError);
+export const RegisterError = createAction(
+  AuthActionsTypes.RegisterError,
+  props<{ errorMessage: string }>(),
+);
 
 const actionsUnion = union({
   /*

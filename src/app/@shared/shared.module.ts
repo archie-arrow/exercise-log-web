@@ -5,16 +5,16 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
 import { RippleModule } from 'primeng/ripple';
-import { ErrorMessageComponent } from 'src/app/@shared/components/error-massage/error-message.component';
+import { FieldErrorMessageComponent } from 'src/app/@shared/components/field-error-massage/field-error-message.component';
 import { SpinnerDirective } from './directives/spinner.directive';
 
 @NgModule({
-  declarations: [ErrorMessageComponent, SpinnerDirective],
+  declarations: [FieldErrorMessageComponent, SpinnerDirective],
   imports: [CommonModule],
   exports: [
     InputTextModule,
     ButtonModule,
-    ErrorMessageComponent,
+    FieldErrorMessageComponent,
     RippleModule,
     ReactiveFormsModule,
     HttpClientModule,

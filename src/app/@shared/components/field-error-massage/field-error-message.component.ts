@@ -11,14 +11,14 @@ export const ERROR_MESSAGE = {
 };
 
 @Component({
-  selector: 'app-error-message',
-  template: ` <ng-container *ngIf="control.touched">
+  selector: 'app-field-error-message',
+  template: ` <ng-container *ngIf="control.touched && control.invalid">
     <small class="p-error block err-m">{{ errorMessage }}</small>
     <div class="empty-space"></div>
   </ng-container>`,
-  styleUrls: ['./error-message.component.scss'],
+  styleUrls: ['./field-error-message.component.scss'],
 })
-export class ErrorMessageComponent {
+export class FieldErrorMessageComponent {
   @Input() control!: AbstractControl<string> | FormGroup<RegisterFormInterface>;
 
   get errorMessage(): string {

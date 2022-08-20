@@ -6,10 +6,12 @@ export const authFeatureKey = 'authState';
 
 export interface AuthStateInterface {
   pending: Pending;
+  errorMessage: string;
 }
 
 export const initialState: AuthStateInterface = {
   pending: Pending.None,
+  errorMessage: '',
 };
 
 export const authReducer = createReducer(
@@ -25,8 +27,9 @@ export const authReducer = createReducer(
     ...state,
     pending: Pending.None,
   })),
-  on(AuthActions.RegisterError, (state) => ({
+  on(AuthActions.RegisterError, (state, action: { errorMessage: string }) => ({
     ...state,
-    pending: Pending.None,
+    pending: Pending.Error,
+    errorMessage: action.errorMessage,
   })),
 );

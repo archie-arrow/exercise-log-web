@@ -25,7 +25,9 @@ export class AuthEffects {
             localStorage.setItem('token', data.token);
             return RegisterSuccess();
           }),
-          catchError(() => of(RegisterError())),
+          catchError((error: { error: { message: string } }) => {
+            return of(RegisterError({ errorMessage: error.error.message }));
+          }),
         ),
       ),
     ),
