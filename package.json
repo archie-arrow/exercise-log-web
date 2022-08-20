@@ -18,7 +18,6 @@
     "lint:ci": "npm run lint && npm run lint:styles && npm run format:check",
     "format:check": "node_modules/.bin/prettier --check .",
     "format:write": "node_modules/.bin/prettier --write .",
-    "prepare": "husky install",
     "e2e": "ng e2e",
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
