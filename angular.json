@@ -30,6 +30,11 @@
             "styles": [
               "src/app/@themes/styles/styles.scss"
             ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src/app/@themes/styles"
+              ]
+            },
             "scripts": []
           },
           "configurations": {
@@ -98,6 +103,11 @@
             "styles": [
               "src/styles.scss"
             ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src/app/@themes/styles/*"
+              ]
+            },
             "scripts": []
           }
         }
