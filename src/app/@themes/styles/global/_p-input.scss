@@ -1,0 +1,18 @@
+@import "../variable";
+
+.p-inputtext {
+  font-size: 1rem;
+  font-family: 'SF-Pro-Rounded', sans-serif;
+  font-weight: 400;
+
+  &:enabled:focus {
+    outline: 0 none;
+    outline-offset: 0;
+    box-shadow: 0 0 0 0.2rem $light-200;
+    border-color: $light-100;
+  }
+
+  &:enabled:hover {
+    border-color: $light-100;
+  }
+}
