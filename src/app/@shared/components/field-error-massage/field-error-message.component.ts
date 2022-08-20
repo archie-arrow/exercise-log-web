@@ -16,7 +16,7 @@ export const ERROR_MESSAGE = {
     <small class="p-error block err-m">{{ errorMessage }}</small>
     <div class="empty-space"></div>
   </ng-container>`,
-  styleUrls: ['./field-error-message.component.scss'],
+  styles: ['.empty-space {display: block; height: 0.5rem; width: 1rem;}'],
 })
 export class FieldErrorMessageComponent {
   @Input() control!: AbstractControl<string> | FormGroup<RegisterFormInterface>;
