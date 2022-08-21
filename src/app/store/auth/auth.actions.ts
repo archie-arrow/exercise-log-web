@@ -1,10 +1,15 @@
 import { createAction, props, union } from '@ngrx/store';
+import { LoginInterface } from 'src/app/@auth/interfaces /login.interface';
 import { RegisterInterface } from 'src/app/@auth/interfaces /register.interface';
 
 export enum AuthActionsTypes {
   Register = '[Register Component] Register',
   RegisterSuccess = '[Auth Api] Register Success',
   RegisterError = '[Auth Api] Register Error',
+
+  Login = '[Login Component] Login',
+  LoginSuccess = '[Auth Api] Login Success',
+  LoginError = '[Auth Api] Login Error',
 }
 
 /*
@@ -22,6 +27,18 @@ export const RegisterError = createAction(
   props<{ errorMessage: string }>(),
 );
 
+/*
+ * Login
+ */
+export const Login = createAction(AuthActionsTypes.Login, props<{ login: LoginInterface }>());
+
+export const LoginSuccess = createAction(AuthActionsTypes.LoginSuccess);
+
+export const LoginError = createAction(
+  AuthActionsTypes.LoginError,
+  props<{ errorMessage: string }>(),
+);
+
 const actionsUnion = union({
   /*
    * Register
@@ -29,6 +46,13 @@ const actionsUnion = union({
   Register,
   RegisterSuccess,
   RegisterError,
+
+  /*
+   * Login
+   */
+  Login,
+  LoginSuccess,
+  LoginError,
 });
 
 export type AuthActions = typeof actionsUnion;
