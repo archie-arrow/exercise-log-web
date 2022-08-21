@@ -20,7 +20,7 @@ export interface RegisterFormInterface {
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.scss'],
+  styleUrls: ['../../../@themes/styles/global/auth.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class RegisterComponent {
@@ -35,11 +35,11 @@ export class RegisterComponent {
         nonNullable: true,
       }),
       password: new FormControl('', {
-        validators: [Validators.required, Validators.minLength(8)],
+        validators: [Validators.required, Validators.minLength(8), Validators.maxLength(30)],
         nonNullable: true,
       }),
       confirmPassword: new FormControl('', {
-        validators: [Validators.required, Validators.minLength(8)],
+        validators: [Validators.required],
         nonNullable: true,
       }),
     },
