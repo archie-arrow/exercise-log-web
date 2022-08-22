@@ -54,6 +54,8 @@ jobs:
                TOKEN: ${{ secrets.GITHUB_TOKEN }}
                BRANCH: gh-pages  
                FOLDER: dist/exercise-log      
-      - name: Copy index.html
-        run: |
-          cp index.html 404.html
+      - name: copy file
+        uses: canastro/copy-file-action@master
+        with:
+          source: "index.html"
+          target: "404.html"
