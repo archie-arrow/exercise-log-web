@@ -1,5 +1,5 @@
 import { createAction, props, union } from '@ngrx/store';
-import { RegisterInterface } from 'src/app/@auth/interfaces /register.interface';
+import { RegisterInterface } from 'src/app/@auth/interfaces/register.interface';
 
 export enum AuthActionsTypes {
   Register = '[Register Component] Register',
