@@ -6,8 +6,8 @@ import { AppState } from 'src/app/store/app.reducer';
 import { Register } from 'src/app/store/auth/auth.actions';
 import {
   selectAuthErrorMessage,
-  selectAuthPending,
-  selectAuthPendingError,
+  selectRegisterPending,
+  selectRegisterPendingError,
 } from 'src/app/store/auth/auth.selectors';
 
 export interface RegisterFormInterface {
@@ -46,8 +46,8 @@ export class RegisterComponent {
     [comparePasswordsValidator],
   );
 
-  errorAfterLoading$ = this.store.select(selectAuthPendingError);
-  isLoading$ = this.store.select(selectAuthPending);
+  errorAfterLoading$ = this.store.select(selectRegisterPendingError);
+  isLoading$ = this.store.select(selectRegisterPending);
   errorMessage$ = this.store.select(selectAuthErrorMessage);
 
   constructor(private store: Store<AppState>) {}

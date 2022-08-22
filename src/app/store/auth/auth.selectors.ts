@@ -4,14 +4,24 @@ import { Pending } from 'src/app/store/pending';
 
 export const selectAuthState = createFeatureSelector<AuthStateInterface>(authFeatureKey);
 
-export const selectAuthPending = createSelector(
+export const selectRegisterPending = createSelector(
   selectAuthState,
-  (state: AuthStateInterface): boolean => state.pending === Pending.Active,
+  (state: AuthStateInterface): boolean => state.pending.register === Pending.Active,
 );
 
-export const selectAuthPendingError = createSelector(
+export const selectRegisterPendingError = createSelector(
   selectAuthState,
-  (state: AuthStateInterface): boolean => state.pending === Pending.Error,
+  (state: AuthStateInterface): boolean => state.pending.register === Pending.Error,
+);
+
+export const selectLoginPending = createSelector(
+  selectAuthState,
+  (state: AuthStateInterface): boolean => state.pending.login === Pending.Active,
+);
+
+export const selectLoginPendingError = createSelector(
+  selectAuthState,
+  (state: AuthStateInterface): boolean => state.pending.login === Pending.Error,
 );
 
 export const selectAuthErrorMessage = createSelector(

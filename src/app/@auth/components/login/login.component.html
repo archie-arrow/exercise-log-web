@@ -26,9 +26,8 @@
       [disabled]="loginForm.invalid || (isLoading$ | async)"
       [appSpinner]="isLoading$ | async"
       (click)="login()"
-      [label]="(isLoading$ | async) ? ' ' : 'Sign Up'"
+      [label]="(isLoading$ | async) ? ' ' : 'Log In'"
       pButton
-      label="Log In"
     ></button>
   </div>
 

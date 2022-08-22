@@ -5,12 +5,18 @@ import * as AuthActions from './auth.actions';
 export const authFeatureKey = 'authState';
 
 export interface AuthStateInterface {
-  pending: Pending;
+  pending: {
+    register: Pending;
+    login: Pending;
+  };
   errorMessage: string;
 }
 
 export const initialState: AuthStateInterface = {
-  pending: Pending.None,
+  pending: {
+    register: Pending.None,
+    login: Pending.None,
+  },
   errorMessage: '',
 };
 
@@ -21,15 +27,24 @@ export const authReducer = createReducer(
    */
   on(AuthActions.Register, (state) => ({
     ...state,
-    pending: Pending.Active,
+    pending: {
+      ...state.pending,
+      register: Pending.Active,
+    },
   })),
   on(AuthActions.RegisterSuccess, (state) => ({
     ...state,
-    pending: Pending.None,
+    pending: {
+      ...state.pending,
+      register: Pending.None,
+    },
   })),
   on(AuthActions.RegisterError, (state, action: { errorMessage: string }) => ({
     ...state,
-    pending: Pending.Error,
+    pending: {
+      ...state.pending,
+      register: Pending.Error,
+    },
     errorMessage: action.errorMessage,
   })),
 
@@ -38,15 +53,24 @@ export const authReducer = createReducer(
    */
   on(AuthActions.Login, (state) => ({
     ...state,
-    pending: Pending.Active,
+    pending: {
+      ...state.pending,
+      login: Pending.Active,
+    },
   })),
   on(AuthActions.LoginSuccess, (state) => ({
     ...state,
-    pending: Pending.None,
+    pending: {
+      ...state.pending,
+      login: Pending.None,
+    },
   })),
   on(AuthActions.LoginError, (state, action: { errorMessage: string }) => ({
     ...state,
-    pending: Pending.Error,
+    pending: {
+      ...state.pending,
+      login: Pending.Error,
+    },
     errorMessage: action.errorMessage,
   })),
 );

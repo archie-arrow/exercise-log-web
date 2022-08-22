@@ -6,8 +6,8 @@ import { AppState } from 'src/app/store/app.reducer';
 import { Login } from 'src/app/store/auth/auth.actions';
 import {
   selectAuthErrorMessage,
-  selectAuthPending,
-  selectAuthPendingError,
+  selectLoginPending,
+  selectLoginPendingError,
 } from 'src/app/store/auth/auth.selectors';
 
 export interface LoginFormInterface {
@@ -33,8 +33,8 @@ export class LoginComponent {
     }),
   });
 
-  errorAfterLoading$ = this.store.select(selectAuthPendingError);
-  isLoading$ = this.store.select(selectAuthPending);
+  errorAfterLoading$ = this.store.select(selectLoginPendingError);
+  isLoading$ = this.store.select(selectLoginPending);
   errorMessage$ = this.store.select(selectAuthErrorMessage);
 
   constructor(private store: Store<AppState>) {}
