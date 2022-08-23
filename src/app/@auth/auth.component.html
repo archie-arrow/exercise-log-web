@@ -1,10 +1,18 @@
 <div class="auth">
-  <div class="image">
+  <div class="image" id="image" @carouselAnimation>
     <div class="logo"><img alt="logo image" src="../../assets/images/logo.svg"></div>
     <div class="quote">
-      <div class="text">“We often overestimate how often we do things, but tracking eliminates this weakness. When we track we just have the facts, not our subjective reflections.”</div>
-      <div class="name">Betsy Ramser Jaime</div>
-      <div class="job">Freelance Editor</div>
+      <div class="text">{{currentSlide.text}}</div>
+      <div class="footer">
+        <div class="quote-item">
+          <div class="name">{{currentSlide.name}}</div>
+          <div class="job">{{currentSlide.job}}</div>
+        </div>
+        <div class="buttons">
+          <button (click)="prev()" class="button"><img src="../../assets/images/slider/prev.svg" alt="prev"></button>
+          <button (click)="next()" class="button"><img src="../../assets/images/slider/next.svg" alt="next"></button>
+        </div>
+      </div>
     </div>
   </div>
   <div class="content">
