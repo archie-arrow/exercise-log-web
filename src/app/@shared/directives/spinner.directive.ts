@@ -11,12 +11,16 @@ export class SpinnerDirective {
     this.renderer.addClass(this.spinner, 'pi-spin');
     this.renderer.addClass(this.spinner, 'pi-spinner');
     this.renderer.addClass(this.spinner, 'hidden');
+    this.renderer.appendChild(this.elementRef.nativeElement, this.spinner);
   }
 
   @Input('appSpinner') set isLoading(loading: boolean | null) {
+    this.toggleSpinnerHidden(!!loading);
+  }
+
+  private toggleSpinnerHidden(loading: boolean): void {
     if (loading) {
       this.renderer.removeClass(this.spinner, 'hidden');
-      this.renderer.appendChild(this.elementRef.nativeElement, this.spinner);
     } else {
       this.renderer.addClass(this.spinner, 'hidden');
     }

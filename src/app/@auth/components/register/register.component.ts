@@ -1,13 +1,13 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnDestroy } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { comparePasswordsValidator, EMAIL_REGEX } from 'src/app/@auth/validators';
 import { AppState } from 'src/app/store/app.reducer';
-import { Register } from 'src/app/store/auth/auth.actions';
+import { Register, ResetAuthState } from 'src/app/store/auth/auth.actions';
 import {
   selectAuthErrorMessage,
-  selectRegisterPending,
-  selectRegisterPendingError,
+  selectAuthPending,
+  selectAuthPendingError,
 } from 'src/app/store/auth/auth.selectors';
 
 export interface RegisterFormInterface {
@@ -20,10 +20,9 @@ export interface RegisterFormInterface {
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['../../../@themes/styles/global/auth.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class RegisterComponent {
+export class RegisterComponent implements OnDestroy {
   registerForm = new FormGroup<RegisterFormInterface>(
     {
       name: new FormControl('', {
@@ -46,8 +45,8 @@ export class RegisterComponent {
     [comparePasswordsValidator],
   );
 
-  errorAfterLoading$ = this.store.select(selectRegisterPendingError);
-  isLoading$ = this.store.select(selectRegisterPending);
+  errorAfterLoading$ = this.store.select(selectAuthPendingError);
+  isLoading$ = this.store.select(selectAuthPending);
   errorMessage$ = this.store.select(selectAuthErrorMessage);
 
   constructor(private store: Store<AppState>) {}
@@ -55,5 +54,9 @@ export class RegisterComponent {
   register(): void {
     const form = this.registerForm.getRawValue();
     this.store.dispatch(Register({ register: form }));
+  }
+
+  ngOnDestroy(): void {
+    this.store.dispatch(ResetAuthState());
   }
 }

@@ -10,6 +10,8 @@ export enum AuthActionsTypes {
   Login = '[Login Component] Login',
   LoginSuccess = '[Auth Api] Login Success',
   LoginError = '[Auth Api] Login Error',
+
+  ResetAuthState = '[Auth] Reset Auth State',
 }
 
 /*
@@ -39,6 +41,11 @@ export const LoginError = createAction(
   props<{ errorMessage: string }>(),
 );
 
+/*
+ * ResetAuthState
+ */
+export const ResetAuthState = createAction(AuthActionsTypes.ResetAuthState);
+
 const actionsUnion = union({
   /*
    * Register
@@ -53,6 +60,11 @@ const actionsUnion = union({
   Login,
   LoginSuccess,
   LoginError,
+
+  /*
+   * ResetAuthState
+   */
+  ResetAuthState,
 });
 
 export type AuthActions = typeof actionsUnion;
