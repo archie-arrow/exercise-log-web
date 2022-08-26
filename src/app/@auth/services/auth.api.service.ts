@@ -5,7 +5,6 @@ import { AuthInterface } from 'src/app/@auth/interfaces/auth.interface';
 import { LoginInterface } from 'src/app/@auth/interfaces/login.interface';
 import { RegisterInterface } from 'src/app/@auth/interfaces/register.interface';
 import { environment } from 'src/environments/environment';
-
 @Injectable({
   providedIn: 'root',
 })
