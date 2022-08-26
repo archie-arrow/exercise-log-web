@@ -1,7 +1,7 @@
 <h1 class="title">Welcome back</h1>
 <h2 class="subtitle">Continue track your progress</h2>
 
-<app-auth-error-message *ngIf="errorAfterLoading$ | async" [message]="errorMessage$ | async"></app-auth-error-message>
+<app-auth-error-message></app-auth-error-message>
 
 <form class="form" [formGroup]="loginForm">
   <div class="form-field">

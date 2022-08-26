@@ -1,7 +1,7 @@
 <h1 class="title">Create an account</h1>
 <h2 class="subtitle">Let’s start track your goal</h2>
 
-<app-auth-error-message *ngIf="errorAfterLoading$ | async" [message]="errorMessage$ | async"></app-auth-error-message>
+<app-auth-error-message></app-auth-error-message>
 
 <form class="form" action="" [formGroup]="registerForm">
 

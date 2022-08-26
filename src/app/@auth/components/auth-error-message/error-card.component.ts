@@ -1,10 +1,13 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { AppState } from 'src/app/store/app.reducer';
+import { selectAuthErrorMessage, selectAuthPendingError } from 'src/app/store/auth/auth.selectors';
 
 @Component({
   selector: 'app-auth-error-message',
-  template: ` <div class="error-card">
+  template: ` <div class="error-card" *ngIf="errorAfterLoading$ | async">
     <div class="error-title">Oh, something went wrong...</div>
-    <div class="error-message">note: {{ message || 'Please, try again later' }}</div>
+    <div class="error-message">note: {{ (message | async) || 'Please, try again later' }}</div>
   </div>`,
   styles: [
     `
@@ -27,7 +30,8 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ErrorCardComponent {
-  @Input() message!: string | null;
+  message = this.store.select(selectAuthErrorMessage);
+  errorAfterLoading$ = this.store.select(selectAuthPendingError);
 
-  constructor() {}
+  constructor(private store: Store<AppState>) {}
 }

@@ -4,11 +4,7 @@ import { Store } from '@ngrx/store';
 import { EMAIL_REGEX } from 'src/app/@auth/validators';
 import { AppState } from 'src/app/store/app.reducer';
 import { Login, ResetAuthState } from 'src/app/store/auth/auth.actions';
-import {
-  selectAuthErrorMessage,
-  selectAuthPending,
-  selectAuthPendingError,
-} from 'src/app/store/auth/auth.selectors';
+import { selectAuthPending } from 'src/app/store/auth/auth.selectors';
 
 export interface LoginFormInterface {
   email: FormControl<string>;
@@ -32,9 +28,7 @@ export class LoginComponent implements OnDestroy {
     }),
   });
 
-  errorAfterLoading$ = this.store.select(selectAuthPendingError);
   isLoading$ = this.store.select(selectAuthPending);
-  errorMessage$ = this.store.select(selectAuthErrorMessage);
 
   constructor(private store: Store<AppState>) {}
 
