@@ -32,4 +32,28 @@ export const authReducer = createReducer(
     pending: Pending.Error,
     errorMessage: action.errorMessage,
   })),
+
+  /**
+   * Login
+   */
+  on(AuthActions.Login, (state) => ({
+    ...state,
+    pending: Pending.Active,
+  })),
+  on(AuthActions.LoginSuccess, (state) => ({
+    ...state,
+    pending: Pending.None,
+  })),
+  on(AuthActions.LoginError, (state, action: { errorMessage: string }) => ({
+    ...state,
+    pending: Pending.Error,
+    errorMessage: action.errorMessage,
+  })),
+
+  /*
+   * ResetAuthState
+   */
+  on(AuthActions.ResetAuthState, () => ({
+    ...initialState,
+  })),
 );
