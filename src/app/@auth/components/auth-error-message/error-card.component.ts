@@ -7,7 +7,7 @@ import { selectAuthErrorMessage, selectAuthPendingError } from 'src/app/store/au
   selector: 'app-auth-error-message',
   template: ` <div class="error-card" *ngIf="errorAfterLoading$ | async">
     <div class="error-title">Oh, something went wrong...</div>
-    <div class="error-message">note: {{ (message | async) || 'Please, try again later' }}</div>
+    <div class="error-message">note: {{ (message$ | async) || 'Please, try again later' }}</div>
   </div>`,
   styles: [
     `
@@ -30,7 +30,7 @@ import { selectAuthErrorMessage, selectAuthPendingError } from 'src/app/store/au
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ErrorCardComponent {
-  message = this.store.select(selectAuthErrorMessage);
+  message$ = this.store.select(selectAuthErrorMessage);
   errorAfterLoading$ = this.store.select(selectAuthPendingError);
 
   constructor(private store: Store<AppState>) {}
