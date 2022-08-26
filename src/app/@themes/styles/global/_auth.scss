@@ -1,4 +1,4 @@
-@import "../../../@themes/styles/variable";
+@import "../variable";
 
 .title {
   font-weight: 500;
@@ -38,6 +38,16 @@
     width: 26rem;
     margin-bottom: 0.875rem;
   }
+}
+
+.forgot {
+  color: $primary-300;
+  text-decoration: underline;
+  cursor: pointer;
+  font-weight: 300;
+  font-size: 0.87rem;
+  line-height: 1.063rem;
+  text-align: right;
 }
 
 

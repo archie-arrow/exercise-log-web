@@ -1,7 +1,7 @@
 <h1 class="title">Create an account</h1>
 <h2 class="subtitle">Let’s start track your goal</h2>
 
-<app-auth-error-message *ngIf="errorAfterLoading$ | async" [message]="errorMessage$ | async"></app-auth-error-message>
+<app-auth-error-message></app-auth-error-message>
 
 <form class="form" action="" [formGroup]="registerForm">
 
@@ -43,12 +43,12 @@
       [appSpinner]="isLoading$ | async"
       (click)="register()"
       pButton
-      [label]="(isLoading$ | async) ? ' ' : 'Sign Up'"
+      label="Sign Up"
     ></button>
   </div>
 
   <div class="link">
     Already have an account?
-    <span routerLink="login">Log In</span>
+    <span routerLink="/login">Log In</span>
   </div>
 </form>
