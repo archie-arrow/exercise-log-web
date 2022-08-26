@@ -23,12 +23,13 @@
 
   <div class="actions">
     <button
-      [disabled]="loginForm.invalid || (isLoading$ | async)"
       [appSpinner]="isLoading$ | async"
       (click)="login()"
-      [label]="(isLoading$ | async) ? ' ' : 'Log In'"
       pButton
-    ></button>
+      [disabled]="(isLoading$ | async) || loginForm.invalid"
+      label="Log in"
+    >
+    </button>
   </div>
 
   <div class="link">
