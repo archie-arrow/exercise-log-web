@@ -35,7 +35,8 @@
                 "src/app/@themes/styles"
               ]
             },
-            "scripts": []
+            "scripts": [],
+            "baseHref": "/exercise-log-web/"
           },
           "configurations": {
             "production": {
