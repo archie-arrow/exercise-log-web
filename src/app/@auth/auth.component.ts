@@ -11,6 +11,6 @@ export class AuthComponent {
   sliderItems = SLIDER_ITEMS;
 
   backgroundImageValue(current: string): string {
-    return `url(../../../../assets/images/slider/${current})`;
+    return `url(assets/images/slider/${current})`;
   }
 }
