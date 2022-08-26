@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CarouselModule } from 'primeng/carousel';
 import { AuthRoutingModule } from 'src/app/@auth/auth-routing.module';
 import { AuthComponent } from 'src/app/@auth/auth.component';
 import { SharedModule } from 'src/app/@shared/shared.module';
@@ -10,6 +9,6 @@ import { ErrorCardComponent } from './components/auth-error-message/error-card.c
 
 @NgModule({
   declarations: [AuthComponent, LoginComponent, RegisterComponent, ErrorCardComponent],
-  imports: [CommonModule, SharedModule, AuthRoutingModule, CarouselModule],
+  imports: [CommonModule, SharedModule, AuthRoutingModule],
 })
 export class AuthModule {}
