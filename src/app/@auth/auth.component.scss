@@ -1,72 +1,42 @@
-@import "src/app/@themes/styles/variable";
+@import "variable";
 
 .auth {
   display: flex;
   height: 100vh;
   width: 100vw;
   justify-content: space-between;
+  background-color: $dark-200;
 
-  .image {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    color: $light-400;
+  p-carousel {
     width: 60vw;
-    padding: 3.875rem;
-    background-image: url("../../assets/images/auth-bg.jpg");
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    letter-spacing: 0.025rem;
-    line-height: 2.625rem;
 
-    .text {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-    }
-
-    .footer {
+    .image {
       display: flex;
-      align-items: center;
+      height: 100vh;
+      flex-direction: column;
       justify-content: space-between;
+      color: $light-400;
+      padding: 3.875rem;
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      letter-spacing: 0.025rem;
+      line-height: 2.625rem;
 
-      .quote-item {
-        .name {
-          font-size: 1.5rem;
-          margin-bottom: 0.5rem;
-        }
-
-        .job {
-          font-weight: 300;
-          font-size: 1.125rem;
-          line-height: 1.375rem;
-        }
+      .text {
+        font-size: 2rem;
+        margin-bottom: 1rem;
       }
 
-      .buttons {
-        display: flex;
+      .name {
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+      }
 
-        .button {
-          border: none;
-          background-color: transparent;
-          cursor: pointer;
-          height: 2.5rem;
-          width: 2.5rem;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          transition: .3s;
-          margin: 0.1rem;
-          border-radius: 100%;
-
-          &:hover {
-            background-color: rgba(255,255,255, 0.1);
-          }
-
-          &:focus {
-            border: none;
-          }
-        }
+      .job {
+        font-weight: 300;
+        font-size: 1.125rem;
+        line-height: 1.375rem;
       }
     }
   }
@@ -80,4 +50,3 @@
     background-color: $light-300;
   }
 }
-

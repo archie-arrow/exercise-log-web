@@ -1,20 +1,22 @@
 <div class="auth">
-  <div class="image" id="image" @carouselAnimation>
-    <div class="logo"><img alt="logo image" src="../../assets/images/logo.svg"></div>
-    <div class="quote">
-      <div class="text">{{currentSlide.text}}</div>
-      <div class="footer">
-        <div class="quote-item">
-          <div class="name">{{currentSlide.name}}</div>
-          <div class="job">{{currentSlide.job}}</div>
+  <p-carousel #carousel [value]="sliderItems"
+              [showNavigators]="false" [showIndicators]="false"
+              [autoplayInterval]="3000" [numVisible]="1"
+              [numScroll]="1" [circular]="true">
+    <ng-template let-sliderItem pTemplate="item">
+      <div class="image" [ngStyle]="{ 'background-image': backgroundImageValue(sliderItem.imgUrl) }">
+        <div class="logo">
+          <img alt="logo image" src="../../../assets/images/logo.svg">
         </div>
-        <div class="buttons">
-          <button (click)="prev()" class="button"><img src="../../assets/images/slider/prev.svg" alt="prev"></button>
-          <button (click)="next()" class="button"><img src="../../assets/images/slider/next.svg" alt="next"></button>
+        <div class="quote">
+          <div class="text">{{sliderItem.text}}</div>
+          <div class="name">{{sliderItem.name}}</div>
+          <div class="job">{{sliderItem.job}}</div>
         </div>
       </div>
-    </div>
-  </div>
+    </ng-template>
+
+  </p-carousel>
   <div class="content">
     <router-outlet></router-outlet>
   </div>
