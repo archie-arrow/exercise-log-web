@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { catchError, map, of, switchMap } from 'rxjs';
-import { AuthInterface } from 'src/app/@auth/interfaces /auth.interface';
-import { LoginInterface } from 'src/app/@auth/interfaces /login.interface';
-import { RegisterInterface } from 'src/app/@auth/interfaces /register.interface';
-import { AuthApiService } from 'src/app/@auth/services /auth.api.service';
+import { AuthInterface } from 'src/app/@auth/interfaces/auth.interface';
+import { LoginInterface } from 'src/app/@auth/interfaces/login.interface';
+import { RegisterInterface } from 'src/app/@auth/interfaces/register.interface';
+import { AuthApiService } from 'src/app/@auth/services/auth.api.service';
 import {
   AuthActions,
   AuthActionsTypes,

@@ -4,7 +4,7 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
   selector: 'app-auth-error-message',
   template: ` <div class="error-card">
     <div class="error-title">Oh, something went wrong...</div>
-    <div class="error-message">note: {{ message }}</div>
+    <div class="error-message">note: {{ message || 'Please, try again later' }}</div>
   </div>`,
   styles: [
     `
@@ -27,7 +27,7 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ErrorCardComponent {
-  @Input() message: string | null = 'Please, try again later';
+  @Input() message!: string | null;
 
   constructor() {}
 }
