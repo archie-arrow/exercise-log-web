@@ -1,4 +1,4 @@
-import { SlideInterface } from 'src/app/@auth/interfaces /slide.interface';
+import { SlideInterface } from 'src/app/@auth/interfaces/slide.interface';
 
 export const SLIDER_ITEMS: SlideInterface[] = [
   {
