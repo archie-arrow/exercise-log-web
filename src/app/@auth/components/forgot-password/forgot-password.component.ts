@@ -1,5 +1,6 @@
 import { Component, OnDestroy } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { EMAIL_REGEX } from 'src/app/@auth/validators';
 import { AppState } from 'src/app/store/app.reducer';
@@ -23,9 +24,13 @@ export class ForgotPasswordComponent implements OnDestroy {
     }),
   });
 
+  email = this.router.getCurrentNavigation()?.extras.state?.['email'];
+
   isLoading$ = this.store.select(selectAuthPending);
 
-  constructor(private store: Store<AppState>) {}
+  constructor(private store: Store<AppState>, private router: Router) {
+    this.forgotPasswordForm.patchValue({ email: this.email });
+  }
 
   ngOnDestroy(): void {
     this.store.dispatch(ResetAuthState());
