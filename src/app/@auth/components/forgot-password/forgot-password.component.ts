@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { EMAIL_REGEX } from 'src/app/@auth/validators';
 import { AppState } from 'src/app/store/app.reducer';
-import { ResetAuthState, ResetPassword } from 'src/app/store/auth/auth.actions';
+import { ForgotPassword, ResetAuthState } from 'src/app/store/auth/auth.actions';
 import { selectAuthPending, selectAuthPendingSuccess } from 'src/app/store/auth/auth.selectors';
 
 export interface ForgotPasswordFormInterface {
@@ -36,8 +36,8 @@ export class ForgotPasswordComponent implements OnDestroy {
     this.store.dispatch(ResetAuthState());
   }
 
-  resetPassword() {
+  reset() {
     const email = this.forgotPasswordForm.controls.email.value;
-    this.store.dispatch(ResetPassword({ email: email }));
+    this.store.dispatch(ForgotPassword({ email: email }));
   }
 }

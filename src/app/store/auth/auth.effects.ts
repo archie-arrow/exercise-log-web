@@ -12,23 +12,23 @@ import {
   LoginSuccess,
   RegisterError,
   RegisterSuccess,
-  ResetPasswordError,
-  ResetPasswordSuccess,
+  ForgotPasswordError,
+  ForgotPasswordSuccess,
 } from 'src/app/store/auth/auth.actions';
 
 @Injectable({ providedIn: 'root' })
 export class AuthEffects {
   /*
-   * Reset Password
+   * Forgot Password
    */
   resetPassword$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(AuthActionsTypes.ResetPassword),
+      ofType(AuthActionsTypes.ForgotPassword),
       switchMap((action: { email: string }) =>
-        this.authApiService.resetPassword(action.email).pipe(
-          map(() => ResetPasswordSuccess()),
+        this.authApiService.forgotPassword(action.email).pipe(
+          map(() => ForgotPasswordSuccess()),
           catchError(() => {
-            return of(ResetPasswordError());
+            return of(ForgotPasswordError());
           }),
         ),
       ),
