@@ -44,13 +44,16 @@ jobs:
       - name: Install Dependencies
         if: steps.cache-nodemodules.outputs.cache-hit != 'true'
         run: |
-          npm ci --force
+          npm ci
       - name: Build
         run: |
           npm run build
+      - name: Copy index.html
+        run: |
+          cp dist/exercise-log/index.html dist/exercise-log/404.html
       - name: Deploy 
         uses: JamesIves/github-pages-deploy-action@v4
         with:  
                TOKEN: ${{ secrets.GITHUB_TOKEN }}
                BRANCH: gh-pages  
-               FOLDER: dist/exercise-log
+               FOLDER: dist/exercise-log      
