@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, OnDestroy } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
-import { comparePasswordsValidator, EMAIL_REGEX } from 'src/app/@auth/validators';
+import { comparePasswordsValidator, EMAIL_REGEX, LETTERS_REGEX } from 'src/app/@auth/validators';
 import { AppState } from 'src/app/store/app.reducer';
 import { Register, ResetAuthState } from 'src/app/store/auth/auth.actions';
 import { selectAuthPending } from 'src/app/store/auth/auth.selectors';
@@ -22,7 +22,12 @@ export class RegisterComponent implements OnDestroy {
   registerForm = new FormGroup<RegisterFormInterface>(
     {
       name: new FormControl('', {
-        validators: [Validators.required, Validators.minLength(2), Validators.maxLength(30)],
+        validators: [
+          Validators.required,
+          Validators.minLength(2),
+          Validators.maxLength(30),
+          Validators.pattern(LETTERS_REGEX),
+        ],
         nonNullable: true,
       }),
       email: new FormControl('', {
