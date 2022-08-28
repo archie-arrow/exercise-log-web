@@ -17,7 +17,7 @@
     <input formControlName="password"
            type="password"
            pInputText>
-    <div class="forgot">Forgot password?</div>
+    <div class="forgot" routerLink="/forgot-password">Forgot password?</div>
     <app-field-error-message [control]="loginForm.controls.password"></app-field-error-message>
   </div>
 
