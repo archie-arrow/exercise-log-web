@@ -20,4 +20,8 @@ export class AuthApiService {
   login(obj: LoginInterface): Observable<AuthInterface> {
     return this.http.post<AuthInterface>(this.authUrl('login'), obj);
   }
+
+  resetPassword(email: string): Observable<{}> {
+    return this.http.post<{}>(this.authUrl('forgot-password'), { email });
+  }
 }

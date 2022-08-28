@@ -3,6 +3,10 @@ import { LoginInterface } from 'src/app/@auth/interfaces/login.interface';
 import { RegisterInterface } from 'src/app/@auth/interfaces/register.interface';
 
 export enum AuthActionsTypes {
+  ResetPassword = '[Forgot Password Component] Reset Password',
+  ResetPasswordSuccess = '[Auth Api] Reset Password Success',
+  ResetPasswordError = '[Auth Api] Reset Password Error',
+
   Register = '[Register Component] Register',
   RegisterSuccess = '[Auth Api] Register Success',
   RegisterError = '[Auth Api] Register Error',
@@ -13,6 +17,18 @@ export enum AuthActionsTypes {
 
   ResetAuthState = '[Auth] Reset Auth State',
 }
+
+/*
+ * Reset Password
+ */
+export const ResetPassword = createAction(
+  AuthActionsTypes.ResetPassword,
+  props<{ email: string }>(),
+);
+
+export const ResetPasswordSuccess = createAction(AuthActionsTypes.ResetPasswordSuccess);
+
+export const ResetPasswordError = createAction(AuthActionsTypes.ResetPasswordError);
 
 /*
  * Register
@@ -47,6 +63,13 @@ export const LoginError = createAction(
 export const ResetAuthState = createAction(AuthActionsTypes.ResetAuthState);
 
 const actionsUnion = union({
+  /*
+   * Reset Password
+   */
+  ResetPassword,
+  ResetPasswordSuccess,
+  ResetPasswordError,
+
   /*
    * Register
    */

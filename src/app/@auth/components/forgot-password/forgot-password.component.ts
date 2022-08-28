@@ -4,8 +4,8 @@ import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { EMAIL_REGEX } from 'src/app/@auth/validators';
 import { AppState } from 'src/app/store/app.reducer';
-import { ResetAuthState } from 'src/app/store/auth/auth.actions';
-import { selectAuthPending } from 'src/app/store/auth/auth.selectors';
+import { ResetAuthState, ResetPassword } from 'src/app/store/auth/auth.actions';
+import { selectAuthPending, selectAuthPendingSuccess } from 'src/app/store/auth/auth.selectors';
 
 export interface ForgotPasswordFormInterface {
   email: FormControl<string>;
@@ -14,7 +14,7 @@ export interface ForgotPasswordFormInterface {
 @Component({
   selector: 'app-forgot-password',
   templateUrl: './forgot-password.component.html',
-  styleUrls: ['./forgot-password.component.scss'],
+  styles: ['.success-icon {margin-bottom: 1rem}'],
 })
 export class ForgotPasswordComponent implements OnDestroy {
   forgotPasswordForm = new FormGroup<ForgotPasswordFormInterface>({
@@ -25,8 +25,8 @@ export class ForgotPasswordComponent implements OnDestroy {
   });
 
   email = this.router.getCurrentNavigation()?.extras.state?.['email'];
-
   isLoading$ = this.store.select(selectAuthPending);
+  isSuccessResetClick$ = this.store.select(selectAuthPendingSuccess);
 
   constructor(private store: Store<AppState>, private router: Router) {
     this.forgotPasswordForm.patchValue({ email: this.email });
@@ -34,5 +34,10 @@ export class ForgotPasswordComponent implements OnDestroy {
 
   ngOnDestroy(): void {
     this.store.dispatch(ResetAuthState());
+  }
+
+  resetPassword() {
+    const email = this.forgotPasswordForm.controls.email.value;
+    this.store.dispatch(ResetPassword({ email: email }));
   }
 }
