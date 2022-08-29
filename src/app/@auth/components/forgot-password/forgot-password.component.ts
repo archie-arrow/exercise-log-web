@@ -5,7 +5,7 @@ import { Store } from '@ngrx/store';
 import { EMAIL_REGEX } from 'src/app/@auth/validators';
 import { AppState } from 'src/app/store/app.reducer';
 import { ForgotPassword } from 'src/app/store/auth/auth.actions';
-import { selectAuthPending } from 'src/app/store/auth/auth.selectors';
+import { selectAuthPending, selectAuthPendingError } from 'src/app/store/auth/auth.selectors';
 
 @Component({
   selector: 'app-forgot-password',
@@ -26,11 +26,13 @@ export class ForgotPasswordComponent {
   });
 
   email = this.router.getCurrentNavigation()?.extras.state?.['email'];
-  isLoading$ = this.store.select(selectAuthPending);
   isEmailSended = false;
 
+  isLoading$ = this.store.select(selectAuthPending);
+  isPendingError$ = this.store.select(selectAuthPendingError);
+
   constructor(private store: Store<AppState>, private router: Router) {
-    this.forgotPasswordControl.patchValue(this.email, { onlySelf: true });
+    this.forgotPasswordControl.patchValue(this.email);
   }
 
   reset(): void {

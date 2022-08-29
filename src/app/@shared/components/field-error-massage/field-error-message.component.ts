@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { AbstractControl, FormGroup } from '@angular/forms';
+import { AbstractControl } from '@angular/forms';
 
 export const ERROR_MESSAGE = {
   minlength: 'Min length should be ',
@@ -18,7 +18,7 @@ export const ERROR_MESSAGE = {
   styles: ['.empty-space {display: block; height: 0.5rem; width: 1rem;}'],
 })
 export class FieldErrorMessageComponent {
-  @Input() control!: AbstractControl<string> | FormGroup;
+  @Input() control!: AbstractControl;
 
   get errorMessage(): string {
     const error = Object.keys(this.control.errors || {})[0];

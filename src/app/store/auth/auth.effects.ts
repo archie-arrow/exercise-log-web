@@ -45,9 +45,7 @@ export class AuthEffects {
             localStorage.setItem('token', data.token);
             return RegisterSuccess();
           }),
-          catchError((error: { error: { message: string } }) =>
-            of(RegisterError({ errorMessage: error.error.message })),
-          ),
+          catchError(({ error }) => of(RegisterError({ errorMessage: error.message }))),
         ),
       ),
     ),
@@ -65,9 +63,7 @@ export class AuthEffects {
             localStorage.setItem('token', data.token);
             return LoginSuccess();
           }),
-          catchError((error: { error: { message: string } }) =>
-            of(LoginError({ errorMessage: error.error.message })),
-          ),
+          catchError(({ error }) => of(LoginError({ errorMessage: error.message }))),
         ),
       ),
     ),
