@@ -17,8 +17,10 @@
     <input formControlName="password"
            type="password"
            pInputText>
-    <div class="forgot">Forgot password?</div>
-    <app-field-error-message [control]="loginForm.controls.password"></app-field-error-message>
+    <div class="display-flex">
+      <app-field-error-message [control]="loginForm.controls.password"></app-field-error-message>
+      <div class="forgot">Forgot password?</div>
+    </div>
   </div>
 
   <div class="actions">
