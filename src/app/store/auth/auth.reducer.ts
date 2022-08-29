@@ -25,7 +25,7 @@ export const authReducer = createReducer(
   })),
   on(AuthActions.ForgotPasswordSuccess, (state) => ({
     ...state,
-    pending: Pending.Success,
+    pending: Pending.None,
   })),
   on(AuthActions.ForgotPasswordError, (state) => ({
     ...state,

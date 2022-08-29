@@ -27,9 +27,7 @@ export class AuthEffects {
       switchMap((action: { email: string }) =>
         this.authApiService.forgotPassword(action.email).pipe(
           map(() => ForgotPasswordSuccess()),
-          catchError(() => {
-            return of(ForgotPasswordError());
-          }),
+          catchError(() => of(ForgotPasswordError())),
         ),
       ),
     ),

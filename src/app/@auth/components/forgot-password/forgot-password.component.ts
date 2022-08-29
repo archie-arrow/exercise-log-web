@@ -1,43 +1,40 @@
-import { Component, OnDestroy } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { EMAIL_REGEX } from 'src/app/@auth/validators';
 import { AppState } from 'src/app/store/app.reducer';
-import { ForgotPassword, ResetAuthState } from 'src/app/store/auth/auth.actions';
-import { selectAuthPending, selectAuthPendingSuccess } from 'src/app/store/auth/auth.selectors';
-
-export interface ForgotPasswordFormInterface {
-  email: FormControl<string>;
-}
+import { ForgotPassword } from 'src/app/store/auth/auth.actions';
+import { selectAuthPending } from 'src/app/store/auth/auth.selectors';
 
 @Component({
   selector: 'app-forgot-password',
   templateUrl: './forgot-password.component.html',
-  styles: ['.success-icon {margin-bottom: 1rem}'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  styles: [
+    `
+      .success-icon {
+        margin-bottom: 1rem;
+      }
+    `,
+  ],
 })
-export class ForgotPasswordComponent implements OnDestroy {
-  forgotPasswordForm = new FormGroup<ForgotPasswordFormInterface>({
-    email: new FormControl('', {
-      validators: [Validators.required, Validators.pattern(EMAIL_REGEX)],
-      nonNullable: true,
-    }),
+export class ForgotPasswordComponent {
+  forgotPasswordControl = new FormControl<string>('', {
+    validators: [Validators.required, Validators.pattern(EMAIL_REGEX)],
+    nonNullable: true,
   });
 
   email = this.router.getCurrentNavigation()?.extras.state?.['email'];
   isLoading$ = this.store.select(selectAuthPending);
-  isSuccessResetClick$ = this.store.select(selectAuthPendingSuccess);
+  isEmailSended = false;
 
   constructor(private store: Store<AppState>, private router: Router) {
-    this.forgotPasswordForm.patchValue({ email: this.email });
+    this.forgotPasswordControl.patchValue(this.email, { onlySelf: true });
   }
 
-  ngOnDestroy(): void {
-    this.store.dispatch(ResetAuthState());
-  }
-
-  reset() {
-    const email = this.forgotPasswordForm.controls.email.value;
-    this.store.dispatch(ForgotPassword({ email: email }));
+  reset(): void {
+    this.store.dispatch(ForgotPassword({ email: this.forgotPasswordControl.value }));
+    this.isEmailSended = true;
   }
 }

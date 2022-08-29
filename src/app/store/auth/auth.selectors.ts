@@ -14,11 +14,6 @@ export const selectAuthPendingError = createSelector(
   (state: AuthStateInterface): boolean => state.pending === Pending.Error,
 );
 
-export const selectAuthPendingSuccess = createSelector(
-  selectAuthState,
-  (state: AuthStateInterface): boolean => state.pending === Pending.Success,
-);
-
 export const selectAuthErrorMessage = createSelector(
   selectAuthState,
   (state: AuthStateInterface): string => state.errorMessage,
