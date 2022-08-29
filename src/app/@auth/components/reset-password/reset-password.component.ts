@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { comparePasswordsValidator } from 'src/app/@auth/validators';
@@ -8,6 +8,7 @@ import { selectAuthPending } from 'src/app/store/auth/auth.selectors';
 export interface ResetPasswordFormInterface {
   password: FormControl<string>;
   confirmPassword: FormControl<string>;
+  changeDetection: ChangeDetectionStrategy.OnPush;
 }
 
 @Component({
