@@ -7,6 +7,7 @@ import { SharedModule } from 'src/app/@shared/shared.module';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { ErrorCardComponent } from './components/auth-error-message/error-card.component';
+import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { ErrorCardComponent } from './components/auth-error-message/error-card.c
     RegisterComponent,
     ErrorCardComponent,
     ForgotPasswordComponent,
+    ResetPasswordComponent,
   ],
   imports: [CommonModule, SharedModule, AuthRoutingModule],
 })
