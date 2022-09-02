@@ -38,7 +38,10 @@ export const Register = createAction(
   props<{ register: RegisterInterface }>(),
 );
 
-export const RegisterSuccess = createAction(AuthActionsTypes.RegisterSuccess);
+export const RegisterSuccess = createAction(
+  AuthActionsTypes.RegisterSuccess,
+  props<{ token: string }>(),
+);
 
 export const RegisterError = createAction(
   AuthActionsTypes.RegisterError,
@@ -50,7 +53,7 @@ export const RegisterError = createAction(
  */
 export const Login = createAction(AuthActionsTypes.Login, props<{ login: LoginInterface }>());
 
-export const LoginSuccess = createAction(AuthActionsTypes.LoginSuccess);
+export const LoginSuccess = createAction(AuthActionsTypes.LoginSuccess, props<{ token: string }>());
 
 export const LoginError = createAction(
   AuthActionsTypes.LoginError,

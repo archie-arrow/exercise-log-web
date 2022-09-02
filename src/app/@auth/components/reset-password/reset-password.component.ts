@@ -8,12 +8,12 @@ import { selectAuthPending } from 'src/app/store/auth/auth.selectors';
 export interface ResetPasswordFormInterface {
   password: FormControl<string>;
   confirmPassword: FormControl<string>;
-  changeDetection: ChangeDetectionStrategy.OnPush;
 }
 
 @Component({
   selector: 'app-reset-password',
   templateUrl: './reset-password.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ResetPasswordComponent {
   resetPasswordForm = new FormGroup<ResetPasswordFormInterface>(
