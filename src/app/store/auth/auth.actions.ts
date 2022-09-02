@@ -1,11 +1,16 @@
 import { createAction, props, union } from '@ngrx/store';
 import { LoginInterface } from 'src/app/@auth/interfaces/login.interface';
 import { RegisterInterface } from 'src/app/@auth/interfaces/register.interface';
+import { ResetPasswordInterface } from 'src/app/@auth/interfaces/reset-password.interface';
 
 export enum AuthActionsTypes {
   ForgotPassword = '[Forgot Password Component] Forgot Password',
   ForgotPasswordSuccess = '[Auth Api] Forgot Password Success',
   ForgotPasswordError = '[Auth Api] Forgot Password Error',
+
+  ResetPassword = '[Reset Password Component] Reset Password',
+  ResetPasswordSuccess = '[Auth Api] Reset Password Success',
+  ResetPasswordError = '[Auth Api] Reset Password Error',
 
   Register = '[Register Component] Register',
   RegisterSuccess = '[Auth Api] Register Success',
@@ -29,6 +34,21 @@ export const ForgotPassword = createAction(
 export const ForgotPasswordSuccess = createAction(AuthActionsTypes.ForgotPasswordSuccess);
 
 export const ForgotPasswordError = createAction(AuthActionsTypes.ForgotPasswordError);
+
+/*
+ * Reset Password
+ */
+export const ResetPassword = createAction(
+  AuthActionsTypes.ResetPassword,
+  props<{ data: ResetPasswordInterface }>(),
+);
+
+export const ResetPasswordSuccess = createAction(AuthActionsTypes.ResetPasswordSuccess);
+
+export const ResetPasswordError = createAction(
+  AuthActionsTypes.ResetPasswordError,
+  props<{ errorMessage: string }>(),
+);
 
 /*
  * Register
@@ -72,6 +92,13 @@ const actionsUnion = union({
   ForgotPassword,
   ForgotPasswordSuccess,
   ForgotPasswordError,
+
+  /*
+   * Reset Password
+   */
+  ResetPassword,
+  ResetPasswordSuccess,
+  ResetPasswordError,
 
   /*
    * Register
