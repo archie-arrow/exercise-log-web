@@ -1,9 +1,9 @@
-import { ChangeDetectionStrategy, Component, OnDestroy } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { EMAIL_REGEX } from 'src/app/@auth/validators';
 import { AppState } from 'src/app/store/app.reducer';
-import { Login, ResetAuthState } from 'src/app/store/auth/auth.actions';
+import { Login } from 'src/app/store/auth/auth.actions';
 import { selectAuthPending } from 'src/app/store/auth/auth.selectors';
 
 export interface LoginFormInterface {
@@ -16,7 +16,7 @@ export interface LoginFormInterface {
   templateUrl: './login.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class LoginComponent implements OnDestroy {
+export class LoginComponent {
   loginForm = new FormGroup<LoginFormInterface>({
     email: new FormControl('', {
       validators: [Validators.required, Validators.pattern(EMAIL_REGEX)],
@@ -35,9 +35,5 @@ export class LoginComponent implements OnDestroy {
   login(): void {
     const form = this.loginForm.getRawValue();
     this.store.dispatch(Login({ login: form }));
-  }
-
-  ngOnDestroy(): void {
-    this.store.dispatch(ResetAuthState());
   }
 }

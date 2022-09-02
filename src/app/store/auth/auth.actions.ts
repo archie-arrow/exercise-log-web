@@ -3,6 +3,10 @@ import { LoginInterface } from 'src/app/@auth/interfaces/login.interface';
 import { RegisterInterface } from 'src/app/@auth/interfaces/register.interface';
 
 export enum AuthActionsTypes {
+  ForgotPassword = '[Forgot Password Component] Forgot Password',
+  ForgotPasswordSuccess = '[Auth Api] Forgot Password Success',
+  ForgotPasswordError = '[Auth Api] Forgot Password Error',
+
   Register = '[Register Component] Register',
   RegisterSuccess = '[Auth Api] Register Success',
   RegisterError = '[Auth Api] Register Error',
@@ -15,6 +19,18 @@ export enum AuthActionsTypes {
 }
 
 /*
+ * Forgot Password
+ */
+export const ForgotPassword = createAction(
+  AuthActionsTypes.ForgotPassword,
+  props<{ email: string }>(),
+);
+
+export const ForgotPasswordSuccess = createAction(AuthActionsTypes.ForgotPasswordSuccess);
+
+export const ForgotPasswordError = createAction(AuthActionsTypes.ForgotPasswordError);
+
+/*
  * Register
  */
 export const Register = createAction(
@@ -22,7 +38,10 @@ export const Register = createAction(
   props<{ register: RegisterInterface }>(),
 );
 
-export const RegisterSuccess = createAction(AuthActionsTypes.RegisterSuccess);
+export const RegisterSuccess = createAction(
+  AuthActionsTypes.RegisterSuccess,
+  props<{ token: string }>(),
+);
 
 export const RegisterError = createAction(
   AuthActionsTypes.RegisterError,
@@ -34,7 +53,7 @@ export const RegisterError = createAction(
  */
 export const Login = createAction(AuthActionsTypes.Login, props<{ login: LoginInterface }>());
 
-export const LoginSuccess = createAction(AuthActionsTypes.LoginSuccess);
+export const LoginSuccess = createAction(AuthActionsTypes.LoginSuccess, props<{ token: string }>());
 
 export const LoginError = createAction(
   AuthActionsTypes.LoginError,
@@ -47,6 +66,13 @@ export const LoginError = createAction(
 export const ResetAuthState = createAction(AuthActionsTypes.ResetAuthState);
 
 const actionsUnion = union({
+  /*
+   * Forgot Password
+   */
+  ForgotPassword,
+  ForgotPasswordSuccess,
+  ForgotPasswordError,
+
   /*
    * Register
    */
