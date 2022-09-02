@@ -12,10 +12,27 @@ import {
   LoginSuccess,
   RegisterError,
   RegisterSuccess,
+  ForgotPasswordError,
+  ForgotPasswordSuccess,
 } from 'src/app/store/auth/auth.actions';
 
 @Injectable({ providedIn: 'root' })
 export class AuthEffects {
+  /*
+   * Forgot Password
+   */
+  resetPassword$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(AuthActionsTypes.ForgotPassword),
+      switchMap((action: { email: string }) =>
+        this.authApiService.forgotPassword(action.email).pipe(
+          map(() => ForgotPasswordSuccess()),
+          catchError(() => of(ForgotPasswordError())),
+        ),
+      ),
+    ),
+  );
+
   /*
    * Register
    */
@@ -24,13 +41,8 @@ export class AuthEffects {
       ofType(AuthActionsTypes.Register),
       switchMap((action: { register: RegisterInterface }) =>
         this.authApiService.register(action.register).pipe(
-          map((data: AuthInterface) => {
-            localStorage.setItem('token', data.token);
-            return RegisterSuccess();
-          }),
-          catchError((error: { error: { message: string } }) =>
-            of(RegisterError({ errorMessage: error.error.message })),
-          ),
+          map((data: AuthInterface) => RegisterSuccess({ token: data.token })),
+          catchError(({ error }) => of(RegisterError({ errorMessage: error.message }))),
         ),
       ),
     ),
@@ -44,13 +56,8 @@ export class AuthEffects {
       ofType(AuthActionsTypes.Login),
       switchMap((action: { login: LoginInterface }) =>
         this.authApiService.login(action.login).pipe(
-          map((data: AuthInterface) => {
-            localStorage.setItem('token', data.token);
-            return LoginSuccess();
-          }),
-          catchError((error: { error: { message: string } }) =>
-            of(LoginError({ errorMessage: error.error.message })),
-          ),
+          map((data: AuthInterface) => LoginSuccess({ token: data.token })),
+          catchError(({ error }) => of(LoginError({ errorMessage: error.message }))),
         ),
       ),
     ),

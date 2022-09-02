@@ -1,9 +1,9 @@
-import { ChangeDetectionStrategy, Component, OnDestroy } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { comparePasswordsValidator, EMAIL_REGEX, LETTERS_REGEX } from 'src/app/@auth/validators';
 import { AppState } from 'src/app/store/app.reducer';
-import { Register, ResetAuthState } from 'src/app/store/auth/auth.actions';
+import { Register } from 'src/app/store/auth/auth.actions';
 import { selectAuthPending } from 'src/app/store/auth/auth.selectors';
 
 export interface RegisterFormInterface {
@@ -18,7 +18,7 @@ export interface RegisterFormInterface {
   templateUrl: './register.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class RegisterComponent implements OnDestroy {
+export class RegisterComponent {
   registerForm = new FormGroup<RegisterFormInterface>(
     {
       name: new FormControl('', {
@@ -53,9 +53,5 @@ export class RegisterComponent implements OnDestroy {
   register(): void {
     const form = this.registerForm.getRawValue();
     this.store.dispatch(Register({ register: form }));
-  }
-
-  ngOnDestroy(): void {
-    this.store.dispatch(ResetAuthState());
   }
 }

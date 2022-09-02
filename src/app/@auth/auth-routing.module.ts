@@ -4,6 +4,7 @@ import { AuthComponent } from 'src/app/@auth/auth.component';
 import { ForgotPasswordComponent } from 'src/app/@auth/components/forgot-password/forgot-password.component';
 import { LoginComponent } from 'src/app/@auth/components/login/login.component';
 import { RegisterComponent } from 'src/app/@auth/components/register/register.component';
+import { ResetPasswordComponent } from 'src/app/@auth/components/reset-password/reset-password.component';
 
 const routes: Routes = [
   {
@@ -21,6 +22,10 @@ const routes: Routes = [
       {
         path: 'forgot-password',
         component: ForgotPasswordComponent,
+      },
+      {
+        path: 'reset-password',
+        component: ResetPasswordComponent,
       },
       {
         path: '**',
