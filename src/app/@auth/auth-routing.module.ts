@@ -5,6 +5,7 @@ import { ForgotPasswordComponent } from 'src/app/@auth/components/forgot-passwor
 import { LoginComponent } from 'src/app/@auth/components/login/login.component';
 import { RegisterComponent } from 'src/app/@auth/components/register/register.component';
 import { ResetPasswordComponent } from 'src/app/@auth/components/reset-password/reset-password.component';
+import { ResetPasswordGuard } from 'src/app/@auth/guards/reset-password.guard';
 
 const routes: Routes = [
   {
@@ -26,6 +27,7 @@ const routes: Routes = [
       {
         path: 'reset-password',
         component: ResetPasswordComponent,
+        canActivate: [ResetPasswordGuard],
       },
       {
         path: '**',

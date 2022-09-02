@@ -17,6 +17,23 @@ export const initialState: AuthStateInterface = {
 export const authReducer = createReducer(
   initialState,
   /*
+   * Reset Password
+   */
+  on(AuthActions.ResetPassword, (state) => ({
+    ...state,
+    pending: Pending.Active,
+  })),
+  on(AuthActions.ResetPasswordSuccess, (state) => ({
+    ...state,
+    pending: Pending.None,
+  })),
+  on(AuthActions.ResetPasswordError, (state, action) => ({
+    ...state,
+    pending: Pending.Error,
+    errorMessage: action.errorMessage,
+  })),
+
+  /*
    * Forgot Password
    */
   on(AuthActions.ForgotPassword, (state) => ({
