@@ -42,6 +42,13 @@
   }
 
   .content {
+    .language-dropdown {
+      position: absolute;
+      top: 1.8rem;
+      right: 1.8rem;
+    }
+
+    position: relative;
     padding: 1.25rem;
     display: flex;
     align-items: center;

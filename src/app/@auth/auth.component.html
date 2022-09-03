@@ -1,11 +1,11 @@
 <div class="auth">
-  <p-carousel #carousel 
+  <p-carousel #carousel
               [value]="sliderItems"
-              [showNavigators]="false" 
+              [showNavigators]="false"
               [showIndicators]="false"
-              [autoplayInterval]="5000" 
+              [autoplayInterval]="5000"
               [numVisible]="1"
-              [numScroll]="1" 
+              [numScroll]="1"
               [circular]="true"
   >
     <ng-template let-sliderItem pTemplate="item">
@@ -23,6 +23,7 @@
 
   </p-carousel>
   <div class="content">
+    <p-dropdown class="language-dropdown" [options]="language" [(ngModel)]="selectedLanguage" optionLabel="name"></p-dropdown>
     <router-outlet></router-outlet>
   </div>
 </div>
