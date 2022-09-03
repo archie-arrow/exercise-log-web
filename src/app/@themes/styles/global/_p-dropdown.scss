@@ -1,12 +1,12 @@
 @import "../variable";
 
 .p-dropdown {
-  font-size: 1rem;
-  font-family: 'SF-Pro-Rounded', sans-serif;
-  font-weight: 400;
-
   &:not(.p-disabled):hover {
     border-color: $light-100;
+  }
+
+  .p-inputtext {
+    font-size: 0.8rem;
   }
 
   &:not(.p-disabled).p-focus {
