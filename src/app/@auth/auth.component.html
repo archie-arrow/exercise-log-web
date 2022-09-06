@@ -1,12 +1,12 @@
 <div class="auth">
-  <p-carousel #carousel
-              [value]="sliderItems"
-              [showNavigators]="false"
-              [showIndicators]="false"
-              [autoplayInterval]="5000"
-              [numVisible]="1"
-              [numScroll]="1"
-              [circular]="true"
+  <p-carousel
+    [value]="sliderItems"
+    [showNavigators]="false"
+    [showIndicators]="false"
+    [autoplayInterval]="5000"
+    [numVisible]="1"
+    [numScroll]="1"
+    [circular]="true"
   >
     <ng-template let-sliderItem pTemplate="item">
       <div class="image" [ngStyle]="{ 'background-image': backgroundImageValue(sliderItem.imgUrl) }">
@@ -23,7 +23,14 @@
 
   </p-carousel>
   <div class="content">
-    <p-dropdown class="language-dropdown" [options]="language" [(ngModel)]="selectedLanguage" optionLabel="name"></p-dropdown>
+    <p-dropdown
+      class="language-dropdown"
+      #dropdown
+      [options]="language"
+      optionLabel="name"
+      optionValue="code"
+      (onChange)="translationService.switchLanguage(dropdown.value)"
+    ></p-dropdown>
     <router-outlet></router-outlet>
   </div>
 </div>

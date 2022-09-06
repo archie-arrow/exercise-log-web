@@ -3,9 +3,9 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { take } from 'rxjs';
-import { comparePasswordsValidator } from 'src/app/@auth/validators';
+import { comparePasswordsValidator } from 'src/app/@shared/validators';
 import { AppState } from 'src/app/store/app.reducer';
-import { ResetPassword, ResetPasswordSuccess } from 'src/app/store/auth/auth.actions';
+import { ResetPassword } from 'src/app/store/auth/auth.actions';
 import { selectAuthPending } from 'src/app/store/auth/auth.selectors';
 
 export interface ResetPasswordFormInterface {
@@ -39,7 +39,7 @@ export class ResetPasswordComponent implements OnInit {
   constructor(private store: Store<AppState>, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
-    this.route.queryParams.pipe(take(1)).subscribe(params => {
+    this.route.queryParams.pipe(take(1)).subscribe((params) => {
       this.token = params['token'];
     });
   }
