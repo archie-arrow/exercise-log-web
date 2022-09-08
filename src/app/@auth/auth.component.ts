@@ -8,6 +8,7 @@ import { Language } from 'src/app/@shared/interfaces/language-option.interface';
 import { AppState } from 'src/app/store/app.reducer';
 import { ResetAuthState } from 'src/app/store/auth/auth.actions';
 import { ChangeLanguage } from 'src/app/store/settings/settings.actions';
+import { selectLanguage } from 'src/app/store/settings/settings.selectors';
 
 @UntilDestroy()
 @Component({
@@ -18,7 +19,9 @@ import { ChangeLanguage } from 'src/app/store/settings/settings.actions';
 })
 export class AuthComponent {
   sliderItems = SLIDER_ITEMS;
-  language = LANGUAGE_OPTIONS;
+  availableLanguages = LANGUAGE_OPTIONS;
+
+  selectedLanguage = Language.ENG;
 
   constructor(private router: Router, private store: Store<AppState>) {
     this.router.events.pipe(untilDestroyed(this)).subscribe((event) => {
@@ -26,6 +29,11 @@ export class AuthComponent {
         this.store.dispatch(ResetAuthState());
       }
     });
+
+    this.store
+      .select(selectLanguage)
+      .pipe(untilDestroyed(this))
+      .subscribe((lang) => (this.selectedLanguage = lang));
   }
 
   backgroundImageValue(current: string): string {

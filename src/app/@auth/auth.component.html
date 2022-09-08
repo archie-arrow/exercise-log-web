@@ -26,9 +26,10 @@
     <p-dropdown
       class="language-dropdown"
       #dropdown
-      [options]="language"
+      [options]="availableLanguages"
       optionLabel="name"
       optionValue="code"
+      [(ngModel)]="selectedLanguage"
       (onChange)="switchLanguage(dropdown.value)"
     ></p-dropdown>
     <router-outlet></router-outlet>
