@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
+import { Language } from 'src/app/@shared/interfaces/language-option.interface';
 
 @Component({
   selector: 'app-root',
@@ -10,9 +11,6 @@ export class AppComponent {
   title = 'exercise-log';
 
   constructor(public translate: TranslateService) {
-    // Register translation languages
-    translate.addLangs(['en', 'ua']);
-    // Set default language
-    translate.setDefaultLang('en');
+    translate.addLangs(Object.values(Language));
   }
 }
