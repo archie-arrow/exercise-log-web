@@ -1,12 +1,12 @@
-<h1 class="title">Create an account</h1>
-<h2 class="subtitle">Let’s start track your goal</h2>
+<h1 class="title">{{ 'REGISTER.title' | translate }}</h1>
+<h2 class="subtitle">{{ 'REGISTER.subtitle' | translate }}</h2>
 
 <app-auth-error-message></app-auth-error-message>
 
 <form class="form" action="" [formGroup]="registerForm">
 
   <div class="form-field">
-    <label>Name</label>
+    <label>{{ 'REGISTER.name' | translate }}</label>
     <input formControlName="name"
            type="text"
            pInputText>
@@ -14,7 +14,7 @@
   </div>
 
   <div class="form-field">
-    <label>Email</label>
+    <label>{{ 'REGISTER.email' | translate }}</label>
     <input formControlName="email"
            type="text"
            pInputText>
@@ -22,7 +22,7 @@
   </div>
 
   <div class="form-field">
-    <label>Password</label>
+    <label>{{ 'REGISTER.password' | translate }}</label>
     <input formControlName="password"
            type="password"
            pInputText>
@@ -30,7 +30,7 @@
   </div>
 
   <div class="form-field">
-    <label>Confirm password</label>
+    <label>{{ 'REGISTER.confirm' | translate }}</label>
     <input formControlName="confirmPassword"
            type="password"
            pInputText>
@@ -43,12 +43,12 @@
       [appSpinner]="isLoading$ | async"
       (click)="register()"
       pButton
-      label="Sign Up"
+      label="{{ 'REGISTER.button' | translate }}"
     ></button>
   </div>
 
   <div class="link">
-    Already have an account?
-    <span routerLink="/login">Log In</span>
+    {{ 'REGISTER.link' | translate }}
+    <span routerLink="/login">{{ 'REGISTER.span' | translate }}</span>
   </div>
 </form>

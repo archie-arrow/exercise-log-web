@@ -3,7 +3,7 @@
     [value]="sliderItems"
     [showNavigators]="false"
     [showIndicators]="false"
-    [autoplayInterval]="5000"
+    [autoplayInterval]="8000"
     [numVisible]="1"
     [numScroll]="1"
     [circular]="true"
@@ -14,9 +14,9 @@
           <img alt="logo image" src="assets/images/logo.svg">
         </div>
         <div class="quote">
-          <div class="text">{{sliderItem.text}}</div>
-          <div class="name">{{sliderItem.name}}</div>
-          <div class="job">{{sliderItem.job}}</div>
+          <div class="text">{{ sliderItem.text | translate }}</div>
+          <div class="name">{{ sliderItem.name | translate }}</div>
+          <div class="job">{{ sliderItem.job | translate }}</div>
         </div>
       </div>
     </ng-template>
