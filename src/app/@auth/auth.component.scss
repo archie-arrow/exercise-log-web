@@ -50,3 +50,16 @@
     background-color: $light-400;
   }
 }
+
+@media (max-width: 768px)
+{
+  .auth {
+    p-carousel {
+      display: none;
+    }
+
+    .content {
+      width: 100vw;
+    }
+  }
+}

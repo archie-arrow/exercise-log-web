@@ -6,10 +6,16 @@
   line-height: 2.688rem;
   color: $dark-100;
   margin-bottom: 0.875rem;
+  width: 26rem;
 }
 
 .subtitle {
   margin-bottom: 2rem;
+  width: 26rem;
+}
+
+input {
+  width: 26rem;
 }
 
 .link {
@@ -49,4 +55,14 @@
   text-align: right;
 }
 
+@media (max-width: 1160px)
+{
+  .title,
+  .subtitle,
+  input,
+  .actions button {
+    max-width: 26rem;
+    width: 100%;
+  }
+}
 
