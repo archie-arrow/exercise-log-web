@@ -14,6 +14,14 @@
   width: 26rem;
 }
 
+form {
+  width: 26rem;
+
+  input {
+    width: 26rem;
+  }
+}
+
 input {
   width: 26rem;
 }
@@ -55,14 +63,15 @@ input {
   text-align: right;
 }
 
-@media (max-width: 1160px)
-{
+@media (max-width: 1160px) {
   .title,
   .subtitle,
   input,
+  form,
+  form input,
   .actions button {
-    max-width: 26rem;
     width: 100%;
+    max-width: 26rem;
   }
 }
 
