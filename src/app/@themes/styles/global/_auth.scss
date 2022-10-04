@@ -1,77 +1,64 @@
 @import "../variable";
 
-.title {
-  font-weight: 500;
-  font-size: 2.25rem;
-  line-height: 2.688rem;
-  color: $dark-100;
-  margin-bottom: 0.875rem;
-  width: 26rem;
-}
+.wrapper {
+  width: 100%;
+  max-width: 26rem;
 
-.subtitle {
-  margin-bottom: 2rem;
-  width: 26rem;
-}
-
-form {
-  width: 26rem;
-
-  input {
-    width: 26rem;
-  }
-}
-
-input {
-  width: 26rem;
-}
-
-.link {
-  text-align: center;
-
-  span {
-    color: $primary-300;
-    text-decoration: underline;
-    cursor: pointer;
-  }
-}
-
-.subtitle,
-.link {
-  font-size: 1rem;
-  line-height: 1.5rem;
-  letter-spacing: 0.025rem;
-  color: $light-100;
-}
-
-.actions {
-  margin: 1.5rem 0;
-
-  button {
-    display: block;
-    width: 26rem;
-    margin-bottom: 0.875rem;
-  }
-}
-
-.forgot {
-  color: $primary-300;
-  text-decoration: underline;
-  cursor: pointer;
-  font-weight: 300;
-  font-size: 0.87rem;
-  text-align: right;
-}
-
-@media (max-width: 1160px) {
   .title,
   .subtitle,
   input,
-  form,
-  form input,
-  .actions button {
+  .link,
+  button
+  {
     width: 100%;
-    max-width: 26rem;
+  }
+
+  .title {
+    font-weight: 500;
+    font-size: 2.25rem;
+    line-height: 2.688rem;
+    color: $dark-100;
+    margin-bottom: 0.875rem;
+  }
+
+  .subtitle {
+    margin-bottom: 2rem;
+  }
+
+  .link {
+    text-align: center;
+
+    span {
+      color: $primary-300;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  }
+
+  .subtitle,
+  .link {
+    font-size: 1rem;
+    line-height: 1.5rem;
+    letter-spacing: 0.025rem;
+    color: $light-100;
+  }
+
+  .actions {
+    margin: 1.5rem 0;
+
+    button {
+      display: block;
+      margin-bottom: 0.875rem;
+    }
+  }
+
+  .forgot {
+    color: $primary-300;
+    text-decoration: underline;
+    cursor: pointer;
+    font-weight: 300;
+    font-size: 0.87rem;
+    text-align: right;
   }
 }
 
