@@ -6,6 +6,16 @@
   width: 100vw;
   justify-content: space-between;
   background-color: $dark-200;
+  position: relative;
+
+  .header {
+    width: 100vw;
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+    padding: 1.8rem;
+    z-index: 10;
+  }
 
   p-carousel {
     width: 60vw;
@@ -14,7 +24,7 @@
       display: flex;
       height: 100vh;
       flex-direction: column;
-      justify-content: space-between;
+      justify-content: flex-end;
       color: $light-400;
       padding: 3.875rem;
       background-position: center center;
@@ -42,11 +52,52 @@
   }
 
   .content {
+    position: relative;
     padding: 1.25rem;
     display: flex;
     align-items: center;
     justify-content: center;
     width: 40vw;
     background-color: $light-400;
+  }
+}
+
+@media (max-width: 768px)
+{
+
+
+  .auth {
+    p-carousel {
+      .image {
+        .text {
+          font-size: 1.5rem;
+          margin-bottom: 0.6rem;
+        }
+
+        .name {
+          font-size: 1rem;
+          margin-bottom: 0.2rem;
+        }
+
+        .job {
+          font-weight: 300;
+          font-size: 0.8rem;
+          line-height: 1.375rem;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 600px)
+{
+  .auth {
+    p-carousel {
+      display: none;
+    }
+
+    .content {
+      width: 100vw;
+    }
   }
 }
