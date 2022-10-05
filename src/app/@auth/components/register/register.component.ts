@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
-import { comparePasswordsValidator, EMAIL_REGEX, LETTERS_REGEX } from 'src/app/@auth/validators';
+import { comparePasswordsValidator, EMAIL_REGEX, LETTERS_REGEX } from 'src/app/@shared/validators';
 import { AppState } from 'src/app/store/app.reducer';
 import { Register } from 'src/app/store/auth/auth.actions';
 import { selectAuthPending } from 'src/app/store/auth/auth.selectors';

@@ -15,7 +15,9 @@ import {
   RegisterError,
   RegisterSuccess,
   ForgotPasswordError,
-  ForgotPasswordSuccess, ResetPasswordSuccess, ResetPasswordError,
+  ForgotPasswordSuccess,
+  ResetPasswordSuccess,
+  ResetPasswordError,
 } from 'src/app/store/auth/auth.actions';
 
 @Injectable({ providedIn: 'root' })
@@ -26,8 +28,8 @@ export class AuthEffects {
   forgotPassword$ = createEffect(() =>
     this.actions$.pipe(
       ofType(AuthActionsTypes.ForgotPassword),
-      switchMap((action: { email: string }) =>
-        this.authApiService.forgotPassword(action.email).pipe(
+      switchMap(({ email }: { email: string }) =>
+        this.authApiService.forgotPassword(email).pipe(
           map(() => ForgotPasswordSuccess()),
           catchError(() => of(ForgotPasswordError())),
         ),
@@ -59,8 +61,8 @@ export class AuthEffects {
   register$ = createEffect(() =>
     this.actions$.pipe(
       ofType(AuthActionsTypes.Register),
-      switchMap((action: { register: RegisterInterface }) =>
-        this.authApiService.register(action.register).pipe(
+      switchMap(({ register }: { register: RegisterInterface }) =>
+        this.authApiService.register(register).pipe(
           map((data: AuthInterface) => RegisterSuccess({ token: data.token })),
           catchError(({ error }) => of(RegisterError({ errorMessage: error.message }))),
         ),
@@ -74,8 +76,8 @@ export class AuthEffects {
   login$ = createEffect(() =>
     this.actions$.pipe(
       ofType(AuthActionsTypes.Login),
-      switchMap((action: { login: LoginInterface }) =>
-        this.authApiService.login(action.login).pipe(
+      switchMap(({ login }: { login: LoginInterface }) =>
+        this.authApiService.login(login).pipe(
           map((data: AuthInterface) => LoginSuccess({ token: data.token })),
           catchError(({ error }) => of(LoginError({ errorMessage: error.message }))),
         ),
@@ -83,5 +85,9 @@ export class AuthEffects {
     ),
   );
 
-  constructor(private actions$: Actions<AuthActions>, private authApiService: AuthApiService, private router: Router) {}
+  constructor(
+    private actions$: Actions<AuthActions>,
+    private authApiService: AuthApiService,
+    private router: Router,
+  ) {}
 }

@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { EMAIL_REGEX } from 'src/app/@auth/validators';
+import { EMAIL_REGEX } from 'src/app/@shared/validators';
 import { AppState } from 'src/app/store/app.reducer';
 import { ForgotPassword } from 'src/app/store/auth/auth.actions';
 import { selectAuthPending, selectAuthPendingError } from 'src/app/store/auth/auth.selectors';

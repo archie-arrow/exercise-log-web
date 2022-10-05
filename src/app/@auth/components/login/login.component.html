@@ -1,12 +1,12 @@
 <div class="wrapper">
-  <h1 class="title">Welcome back</h1>
-  <h2 class="subtitle">Continue track your progress</h2>
+  <h1 class="title">{{ 'LOGIN.title' | translate }}</h1>
+  <h2 class="subtitle">{{ 'LOGIN.subtitle' | translate }}</h2>
 
   <app-auth-error-message></app-auth-error-message>
 
   <form class="form" [formGroup]="loginForm">
     <div class="form-field">
-      <label>Email</label>
+      <label>{{ 'LOGIN.email' | translate }}</label>
       <input formControlName="email"
              type="text"
              pInputText>
@@ -14,7 +14,7 @@
     </div>
 
     <div class="form-field">
-      <label>Password</label>
+      <label>{{ 'LOGIN.password' | translate }}</label>
       <input formControlName="password"
              type="password"
              pInputText>
@@ -24,7 +24,7 @@
           class="forgot"
           routerLink="/forgot-password"
           [state]="{ email: loginForm.controls.email.valid ? loginForm.controls.email.value : ''}">
-          Forgot password?
+          {{ 'LOGIN.forgot' | translate }}
         </div>
       </div>
     </div>
@@ -35,16 +35,14 @@
         (click)="login()"
         pButton
         [disabled]="(isLoading$ | async) || loginForm.invalid"
-        label="Log in"
+        label="{{ 'LOGIN.button' | translate }}"
       >
       </button>
     </div>
 
     <div class="link">
-      Still don’t have an account?
-      <span routerLink="/register">Sign up</span>
+      {{ 'LOGIN.link' | translate }}
+      <span routerLink="/register">{{ 'LOGIN.span' | translate }}</span>
     </div>
   </form>
-
-
 </div>
