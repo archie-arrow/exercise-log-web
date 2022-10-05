@@ -6,6 +6,16 @@
   width: 100vw;
   justify-content: space-between;
   background-color: $dark-200;
+  position: relative;
+
+  .header {
+    width: 100vw;
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+    padding: 1.8rem;
+    z-index: 10;
+  }
 
   p-carousel {
     width: 60vw;
@@ -14,7 +24,7 @@
       display: flex;
       height: 100vh;
       flex-direction: column;
-      justify-content: space-between;
+      justify-content: flex-end;
       color: $light-400;
       padding: 3.875rem;
       background-position: center center;
@@ -42,12 +52,6 @@
   }
 
   .content {
-    .language-dropdown {
-      position: absolute;
-      top: 1.8rem;
-      right: 1.8rem;
-    }
-
     position: relative;
     padding: 1.25rem;
     display: flex;
@@ -65,13 +69,6 @@
   .auth {
     p-carousel {
       .image {
-        .logo {
-          img {
-            height: 2.5rem;
-            width: auto;
-          }
-        }
-
         .text {
           font-size: 1.5rem;
           margin-bottom: 0.6rem;
