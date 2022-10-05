@@ -1,47 +1,50 @@
-<h1 class="title">Welcome back</h1>
-<h2 class="subtitle">Continue track your progress</h2>
+<div class="wrapper">
+  <h1 class="title">Welcome back</h1>
+  <h2 class="subtitle">Continue track your progress</h2>
 
-<app-auth-error-message></app-auth-error-message>
+  <app-auth-error-message></app-auth-error-message>
 
-<form class="form" [formGroup]="loginForm">
-  <div class="form-field">
-    <label>Email</label>
-    <input formControlName="email"
-           type="text"
-           pInputText>
-    <app-field-error-message [control]="loginForm.controls.email"></app-field-error-message>
-  </div>
+  <form class="form" [formGroup]="loginForm">
+    <div class="form-field">
+      <label>Email</label>
+      <input formControlName="email"
+             type="text"
+             pInputText>
+      <app-field-error-message [control]="loginForm.controls.email"></app-field-error-message>
+    </div>
 
-  <div class="form-field">
-    <label>Password</label>
-    <input formControlName="password"
-           type="password"
-           pInputText>
-    <div class="display-flex">
-    <app-field-error-message [control]="loginForm.controls.password"></app-field-error-message>
-      <div
-        class="forgot"
-        routerLink="/forgot-password"
-        [state]="{ email: loginForm.controls.email.valid ? loginForm.controls.email.value : ''}">
-        Forgot password?
+    <div class="form-field">
+      <label>Password</label>
+      <input formControlName="password"
+             type="password"
+             pInputText>
+      <div class="display-flex">
+        <app-field-error-message [control]="loginForm.controls.password"></app-field-error-message>
+        <div
+          class="forgot"
+          routerLink="/forgot-password"
+          [state]="{ email: loginForm.controls.email.valid ? loginForm.controls.email.value : ''}">
+          Forgot password?
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="actions">
-    <button
-      [appSpinner]="isLoading$ | async"
-      (click)="login()"
-      pButton
-      [disabled]="(isLoading$ | async) || loginForm.invalid"
-      label="Log in"
-    >
-    </button>
-  </div>
+    <div class="actions">
+      <button
+        [appSpinner]="isLoading$ | async"
+        (click)="login()"
+        pButton
+        [disabled]="(isLoading$ | async) || loginForm.invalid"
+        label="Log in"
+      >
+      </button>
+    </div>
 
-  <div class="link">
-    Still don’t have an account?
-    <span routerLink="/register">Sign up</span>
-  </div>
-</form>
+    <div class="link">
+      Still don’t have an account?
+      <span routerLink="/register">Sign up</span>
+    </div>
+  </form>
 
+
+</div>
