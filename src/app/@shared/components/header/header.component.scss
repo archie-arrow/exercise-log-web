@@ -1,0 +1,52 @@
+.header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.6rem;
+  border-bottom: 1px solid #CDCDCD;
+
+  .left, .right {
+    display: flex;
+    align-items: center;
+  }
+
+  .menu-button {
+    border: none;
+    background-color: transparent;
+    padding: 0;
+    cursor: pointer;
+  }
+
+  .title {
+    font-weight: 500;
+    font-size: 2rem;
+    line-height: 2rem;
+    color: #000000;
+    margin-left: 1.6rem;
+  }
+
+  .button {
+    padding: 0.2rem 0 0.2rem 0.25rem;
+    margin-left: 1.5rem;
+  }
+
+  .user {
+    display: flex;
+    align-items: center;
+
+    .info {
+      line-height: 1rem;
+      size: 0.86rem;
+      text-align: right;
+
+      .email {
+        color: #CDCDCD;
+      }
+    }
+
+    .img {
+      margin-left: 0.3rem;
+    }
+  }
+}

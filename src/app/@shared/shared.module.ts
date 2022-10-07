@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
+import { AvatarModule } from 'primeng/avatar';
 import { CarouselModule } from 'primeng/carousel';
 import { DropdownModule } from 'primeng/dropdown';
 import { InputTextModule } from 'primeng/inputtext';
@@ -16,7 +17,7 @@ import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
   declarations: [FieldErrorMessageComponent, SpinnerDirective, NavComponent, HeaderComponent],
-  imports: [CommonModule, RouterModule, ButtonModule],
+  imports: [CommonModule, RouterModule, ButtonModule, AvatarModule],
   exports: [
     NavComponent,
     FieldErrorMessageComponent,
@@ -30,6 +31,7 @@ import { HeaderComponent } from './components/header/header.component';
     DropdownModule,
     FormsModule,
     TranslateModule,
+    HeaderComponent,
   ],
 })
 export class SharedModule {}
