@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { NavigationStart, Router } from '@angular/router';
 import { menuItems } from 'src/app/@shared/constants';
 
@@ -8,6 +8,8 @@ import { menuItems } from 'src/app/@shared/constants';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
+  @Output() toggle = new EventEmitter<boolean>();
+  @Input() menuIsOpen!: boolean;
   title: string = '';
 
   constructor(private router: Router) {
@@ -28,5 +30,9 @@ export class HeaderComponent implements OnInit {
         this.title = element.name;
       }
     });
+  }
+
+  toggleMenu() {
+    this.toggle.emit(!this.menuIsOpen);
   }
 }

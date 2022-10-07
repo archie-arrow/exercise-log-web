@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { menuItems } from 'src/app/@shared/constants';
 
@@ -8,6 +8,7 @@ import { menuItems } from 'src/app/@shared/constants';
   styleUrls: ['./nav.component.scss'],
 })
 export class NavComponent {
+  @Input() menuIsOpen!: boolean;
   menuItems = menuItems;
 
   constructor(public domSanitizer: DomSanitizer) {}

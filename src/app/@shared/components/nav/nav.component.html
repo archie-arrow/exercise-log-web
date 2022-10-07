@@ -1,4 +1,7 @@
-<nav class="nav">
+<nav
+  class="nav"
+  [ngClass]="{'nav_close': !menuIsOpen}"
+>
   <a href="#" class="logo">
     <img src="assets/images/shared/logo.svg" alt="logo">
     <img class="text" src="assets/images/shared/EXERCISELOG.svg" alt="EXERCISE LOG">

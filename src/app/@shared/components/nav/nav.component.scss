@@ -43,8 +43,8 @@
       }
 
       .icon {
-        width: 28px;
-        height: 28px;
+        width: 1.75rem;
+        height: 1.75rem;
       }
 
       &:hover {
@@ -83,6 +83,40 @@
 
     .text {
       font-size: 0.88rem;
+    }
+  }
+}
+
+.nav_close {
+  .logo {
+    .text {
+      display: none;
+    }
+  }
+
+  .menu {
+    &-item {
+      .name {
+        display: none;
+      }
+
+      &:hover {
+        background-color: rgba(208, 59, 49, 0.05);
+      }
+    }
+  }
+
+  .button {
+    height: 2.25rem;
+    min-width: 2.25rem;
+    padding: 0.3rem 0 0.3rem 0.2rem;
+
+    .line {
+      display: none;
+    }
+
+    .text {
+      display: none;
     }
   }
 }
