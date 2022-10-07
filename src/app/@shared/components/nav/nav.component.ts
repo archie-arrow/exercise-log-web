@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { menuItems } from 'src/app/@shared/constants';
 
 @Component({
@@ -8,4 +9,14 @@ import { menuItems } from 'src/app/@shared/constants';
 })
 export class NavComponent {
   menuItems = menuItems;
+
+  constructor(public domSanitizer: DomSanitizer) {}
+
+  test(li: HTMLLIElement) {
+    console.log(li);
+  }
+
+  sanitizeHtml(html: string): SafeHtml {
+    return this.domSanitizer.bypassSecurityTrustHtml(html);
+  }
 }
