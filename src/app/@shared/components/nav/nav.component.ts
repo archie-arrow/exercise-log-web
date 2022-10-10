@@ -13,10 +13,6 @@ export class NavComponent {
 
   constructor(public domSanitizer: DomSanitizer) {}
 
-  test(li: HTMLLIElement) {
-    console.log(li);
-  }
-
   sanitizeHtml(html: string): SafeHtml {
     return this.domSanitizer.bypassSecurityTrustHtml(html);
   }

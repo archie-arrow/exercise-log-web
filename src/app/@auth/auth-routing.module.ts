@@ -29,10 +29,6 @@ const routes: Routes = [
         component: ResetPasswordComponent,
         canActivate: [ResetPasswordGuard],
       },
-      // {
-      //   path: '**',
-      //   redirectTo: 'login',
-      // },
     ],
   },
 ];

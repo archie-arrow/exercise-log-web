@@ -6,7 +6,7 @@ import { AuthInterface } from 'src/app/@auth/interfaces/auth.interface';
 import { LoginInterface } from 'src/app/@auth/interfaces/login.interface';
 import { RegisterInterface } from 'src/app/@auth/interfaces/register.interface';
 import { ResetPasswordInterface } from 'src/app/@auth/interfaces/reset-password.interface';
-import { AuthApiService } from 'src/app/@auth/services/auth.api.service';
+import { AuthApiService } from 'src/app/@auth/api/auth.api.service';
 import {
   AuthActions,
   AuthActionsTypes,
@@ -83,6 +83,18 @@ export class AuthEffects {
         ),
       ),
     ),
+  );
+
+  /*
+   * Auth Success Redirect
+   */
+  authSuccessRedirect$ = createEffect(
+    () =>
+      this.actions$.pipe(
+        ofType(AuthActionsTypes.LoginSuccess, AuthActionsTypes.RegisterSuccess),
+        map(() => this.router.navigate(['/dashboard'])),
+      ),
+    { dispatch: false },
   );
 
   constructor(
