@@ -1,3 +1,5 @@
+@import "variable";
+
 .nav {
   width: 12.2rem;
   height: 100vh;
@@ -8,7 +10,7 @@
   left: 0;
   border-right: 1px solid #CDCDCD;
   padding: 1.625rem;
-  transition: .2s all ease;
+  transition: $transition-02;
 
   .logo {
     display: flex;
@@ -21,7 +23,7 @@
       margin-left: 0.375rem;
       opacity: 1;
       width: auto;
-      transition: .2s all ease;
+      transition: $transition-02;
     }
   }
 
@@ -35,7 +37,7 @@
       align-items: center;
       padding: 0.25rem;
       cursor: pointer;
-      transition: 0.2s all;
+      transition: $transition-02;
       width: 100%;
       overflow: hidden;
       white-space: nowrap;
@@ -80,7 +82,7 @@
     height: 2.25rem;
     width: 8.9rem;
     padding: 0.3rem;
-    transition: .2s all ease;
+    transition: $transition-02;
 
     .line {
       display: block;

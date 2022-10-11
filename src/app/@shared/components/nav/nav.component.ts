@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { menuItems } from 'src/app/@shared/constants';
 
@@ -6,6 +6,7 @@ import { menuItems } from 'src/app/@shared/constants';
   selector: 'app-nav',
   templateUrl: './nav.component.html',
   styleUrls: ['./nav.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NavComponent {
   @Input() menuIsOpen!: boolean;

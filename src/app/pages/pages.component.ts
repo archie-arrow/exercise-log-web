@@ -1,14 +1,15 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
   selector: 'app-pages',
   templateUrl: './pages.component.html',
   styleUrls: ['./pages.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PagesComponent {
   menuIsOpen = true;
 
-  toggleMenu(value: boolean): void {
-    this.menuIsOpen = value;
+  toggleMenu(): void {
+    this.menuIsOpen = !this.menuIsOpen;
   }
 }
