@@ -1,6 +1,6 @@
 <nav
   class="nav"
-  [ngClass]="{'nav_close': !menuIsOpen}"
+  [class.nav_close]="!menuIsOpen"
 >
   <a href="#" class="logo">
     <img src="assets/images/shared/logo.svg" alt="logo">
@@ -17,9 +17,9 @@
       <div class="name">{{item.name}}</div>
     </li>
   </ul>
-  <button pButton class="button">
+  <button pButton class="button" [class.button-icon]="!menuIsOpen">
     <img src="assets/images/pages/plus-icon.svg" alt="add">
-    <span class="line"></span>
+    <span *ngIf="menuIsOpen" class="line"></span>
     <span class="text">Log workout</span>
   </button>
 </nav>
