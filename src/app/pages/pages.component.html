@@ -1,7 +1,9 @@
 <div class="pages">
   <app-nav [menuIsOpen]="menuIsOpen"></app-nav>
-  <div class="content">
+  <div class="container">
     <app-header (toggle)="toggleMenu()"></app-header>
-    <router-outlet></router-outlet>
+    <div class="content">
+      <router-outlet></router-outlet>
+    </div>
   </div>
 </div>

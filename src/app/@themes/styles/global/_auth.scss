@@ -1,17 +1,7 @@
 @import "src/app/@themes/styles/variable";
 
-.wrapper {
+.auth-wrapper {
   width: 100%;
-  max-width: 26rem;
-
-  .title,
-  .subtitle,
-  input,
-  .link,
-  button
-  {
-    width: 100%;
-  }
 
   .title {
     font-weight: 500;
@@ -49,6 +39,7 @@
     button {
       display: block;
       margin-bottom: 0.875rem;
+      width: 100%;
     }
   }
 
