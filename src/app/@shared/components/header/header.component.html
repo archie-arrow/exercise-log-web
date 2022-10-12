@@ -9,9 +9,9 @@
     <h1 class="title">{{title}}</h1>
   </div>
   <div class="right">
-    <div class="user">
+    <div class="user" *ngIf="(userIsLoading$ | async) === false; else userInfoLoader">
       <div class="info">
-        <div class="name">{{name$ | async}}</div>
+        <div class="name mb-4">{{name$ | async}}</div>
         <div class="email">{{email$ | async}}</div>
       </div>
       <div class="img">
@@ -21,4 +21,15 @@
     <button pButton class="button"><img src="assets/images/pages/exit-icon.svg" alt="exit"></button>
   </div>
 </header>
+
+<ng-template #userInfoLoader>
+  <div class="user-skeleton">
+    <div class="info">
+      <p-skeleton class="mb-4" width="8rem"></p-skeleton>
+      <p-skeleton width="8rem"></p-skeleton>
+    </div>
+
+    <p-skeleton class="img" size="2.25rem"></p-skeleton>
+  </div>
+</ng-template>
 

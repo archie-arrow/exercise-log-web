@@ -31,7 +31,7 @@
     margin-left: 1.5rem;
   }
 
-  .user {
+  .user, .user-skeleton {
     display: flex;
     align-items: center;
 
@@ -39,6 +39,9 @@
       line-height: 1rem;
       size: 0.86rem;
       text-align: right;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
 
       .email {
         color: #CDCDCD;
@@ -49,4 +52,8 @@
       margin-left: 0.4rem;
     }
   }
+}
+
+.mb-4 {
+  margin-bottom: 4px;
 }

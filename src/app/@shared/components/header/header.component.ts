@@ -7,7 +7,11 @@ import { menuItems } from 'src/app/@shared/constants';
 import { MenuItemInterface } from 'src/app/@shared/interfaces/menuItem.interface';
 import { AppState } from 'src/app/store/app.reducer';
 import { GetCurrentUser } from 'src/app/store/user/user.actions';
-import { selectUserEmail, selectUserName } from 'src/app/store/user/user.selectors';
+import {
+  selectUserEmail,
+  selectUserLoading,
+  selectUserName,
+} from 'src/app/store/user/user.selectors';
 
 @UntilDestroy()
 @Component({
@@ -19,7 +23,7 @@ export class HeaderComponent {
   @Output() toggle = new EventEmitter<boolean>();
 
   title = '';
-
+  userIsLoading$ = this.store.select(selectUserLoading);
   email$ = this.store.select(selectUserEmail);
   name$ = this.store.select(selectUserName);
   avatarLabel$ = this.name$.pipe(
