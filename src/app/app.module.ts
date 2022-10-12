@@ -39,11 +39,7 @@ export function tokenGetter() {
     JwtModule.forRoot({
       config: {
         tokenGetter: tokenGetter,
-        allowedDomains: [
-          'localhost:4200',
-          'https://archie-arrow.github.io/exercise-log-web/login',
-          environment.baseURL,
-        ],
+        allowedDomains: [environment.baseURL.split('https://')[1]],
       },
     }),
   ],

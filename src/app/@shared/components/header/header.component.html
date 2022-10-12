@@ -11,11 +11,11 @@
   <div class="right">
     <div class="user">
       <div class="info">
-        <div class="name">Arthur Maydanuk</div>
-        <div class="email">arthur.maydanuk@gmail.com</div>
+        <div class="name">{{name$ | async}}</div>
+        <div class="email">{{email$ | async}}</div>
       </div>
       <div class="img">
-        <p-avatar label="AM" size="medium"></p-avatar>
+        <p-avatar [label]="(avatarLabel$ | async) || ' '"></p-avatar>
       </div>
     </div>
     <button pButton class="button"><img src="assets/images/pages/exit-icon.svg" alt="exit"></button>
