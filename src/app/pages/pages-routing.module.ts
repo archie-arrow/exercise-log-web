@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { BodySizeComponent } from 'src/app/pages/body-size/body-size.component';
 import { DashboardComponent } from 'src/app/pages/dashboard/dashboard.component';
 import { PagesComponent } from 'src/app/pages/pages.component';
-import { ProgramsComponent } from 'src/app/pages/programs/programs.component';
+import { WorkoutsComponent } from 'src/app/pages/workouts/workouts.component';
 import { SettingsComponent } from 'src/app/pages/settings/settings.component';
 import { StatisticsComponent } from 'src/app/pages/statistics/statistics.component';
 
@@ -21,8 +21,8 @@ const routes: Routes = [
         component: StatisticsComponent,
       },
       {
-        path: 'programs',
-        component: ProgramsComponent,
+        path: 'workouts',
+        component: WorkoutsComponent,
       },
       {
         path: 'settings',

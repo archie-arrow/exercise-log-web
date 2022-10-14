@@ -58,5 +58,13 @@
     "button": "Change",
     "link": "Remembered your password?",
     "span": "Log In"
+  },
+  "NAV":  "",
+  "difficulty":"",
+
+  "SHARED": {
+    "Easy":  "",
+    "Ok":  "",
+    "close": ""
   }
 }
