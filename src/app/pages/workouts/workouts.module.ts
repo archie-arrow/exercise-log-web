@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from 'primeng/api';
+import { ButtonModule } from 'primeng/button';
 import { DropdownModule } from 'primeng/dropdown';
 import { InputTextModule } from 'primeng/inputtext';
 import { InputTextareaModule } from 'primeng/inputtextarea';
@@ -21,6 +22,7 @@ import { WorkoutListComponent } from './components/workout-list/workout-list.com
     ReactiveFormsModule,
     InputTextareaModule,
     InputTextModule,
+    ButtonModule,
   ],
 })
 export class WorkoutsModule {}

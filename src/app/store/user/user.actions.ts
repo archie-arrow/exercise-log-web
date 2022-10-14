@@ -1,7 +1,7 @@
 import { createAction, props, union } from '@ngrx/store';
 
 export enum UserActionsTypes {
-  GetCurrentUser = '[] Get Current User',
+  GetCurrentUser = '[Header Component] Get Current User',
   GetCurrentUserSuccess = '[User Api] Get Current User Success',
   GetCurrentUserError = '[User Api] Get Current User Error',
 }
