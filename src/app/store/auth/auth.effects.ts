@@ -6,7 +6,7 @@ import { AuthInterface } from 'src/app/@auth/interfaces/auth.interface';
 import { LoginInterface } from 'src/app/@auth/interfaces/login.interface';
 import { RegisterInterface } from 'src/app/@auth/interfaces/register.interface';
 import { ResetPasswordInterface } from 'src/app/@auth/interfaces/reset-password.interface';
-import { AuthApiService } from 'src/app/@auth/api/auth.api.service';
+import { AuthApiService } from 'src/app/@core/api/auth.api.service';
 import {
   AuthActions,
   AuthActionsTypes,

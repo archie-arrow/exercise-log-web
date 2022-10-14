@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AuthGuard } from 'src/app/@auth/guards/auth.guard';
-import { PagesGuard } from 'src/app/pages/guards/pages.guard';
+import { AuthGuard } from 'src/app/@core/guards/auth.guard';
+import { PagesGuard } from 'src/app/@core/guards/pages.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { catchError, map, of, switchMap } from 'rxjs';
-import { UserApiService } from 'src/app/@shared/api/user.api.service';
+import { UserApiService } from 'src/app/@core/api/user.api.service';
 import { UserInterface } from 'src/app/@shared/interfaces/user.interface';
 import {
   GetCurrentUserError,
