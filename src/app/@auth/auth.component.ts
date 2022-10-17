@@ -37,7 +37,7 @@ export class AuthComponent {
   }
 
   backgroundImageValue(current: string): string {
-    return `url(assets/images/slider/${current})`;
+    return `url(assets/images/auth/slider/${current})`;
   }
 
   switchLanguage(language: Language) {

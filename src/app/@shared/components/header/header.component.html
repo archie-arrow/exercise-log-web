@@ -1,0 +1,35 @@
+<header class="header">
+  <div class="left">
+    <img
+      (click)="toggle.emit()"
+      class="menu-button"
+      src="assets/images/pages/menu-icon.svg"
+      alt="menu"
+    >
+    <h1 class="title">{{title}}</h1>
+  </div>
+  <div class="right">
+    <div class="user" *ngIf="(userIsLoading$ | async) === false; else userInfoLoader">
+      <div class="info">
+        <div class="name mb-4">{{name$ | async}}</div>
+        <div class="email">{{email$ | async}}</div>
+      </div>
+      <div class="img">
+        <p-avatar [label]="(avatarLabel$ | async) || ' '"></p-avatar>
+      </div>
+    </div>
+    <button pButton class="button"><img src="assets/images/pages/exit-icon.svg" alt="exit"></button>
+  </div>
+</header>
+
+<ng-template #userInfoLoader>
+  <div class="user-skeleton">
+    <div class="info">
+      <p-skeleton class="mb-4" width="8rem"></p-skeleton>
+      <p-skeleton width="8rem"></p-skeleton>
+    </div>
+
+    <p-skeleton class="img" size="2.25rem"></p-skeleton>
+  </div>
+</ng-template>
+

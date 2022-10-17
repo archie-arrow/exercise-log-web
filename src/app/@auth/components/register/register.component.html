@@ -1,4 +1,4 @@
-<div class="wrapper">
+<div class="auth-wrapper">
   <h1 class="title">{{ 'REGISTER.title' | translate }}</h1>
   <h2 class="subtitle">{{ 'REGISTER.subtitle' | translate }}</h2>
 
@@ -6,52 +6,55 @@
 
   <form class="form" action="" [formGroup]="registerForm">
 
-  <div class="form-field">
-    <label>{{ 'REGISTER.name' | translate }}</label>
-    <input formControlName="name"
-           type="text"
-           pInputText>
-    <app-field-error-message [control]="registerForm.controls.name"></app-field-error-message>
-  </div>
+    <div class="form-field">
+      <label>{{ 'REGISTER.name' | translate }}</label>
+      <input formControlName="name"
+             type="text"
+             pInputText>
+      <app-field-error-message [control]="registerForm.controls.name"></app-field-error-message>
+    </div>
 
-  <div class="form-field">
-    <label>{{ 'REGISTER.email' | translate }}</label>
-    <input formControlName="email"
-           type="text"
-           pInputText>
-    <app-field-error-message [control]="registerForm.controls.email"></app-field-error-message>
-  </div>
+    <div class="form-field">
+      <label>{{ 'REGISTER.email' | translate }}</label>
+      <input formControlName="email"
+             type="text"
+             pInputText>
+      <app-field-error-message [control]="registerForm.controls.email"></app-field-error-message>
+    </div>
 
-  <div class="form-field">
-    <label>{{ 'REGISTER.password' | translate }}</label>
-    <input formControlName="password"
-           type="password"
-           pInputText>
-    <app-field-error-message [control]="registerForm.controls.password"></app-field-error-message>
-  </div>
+    <div class="form-field">
+      <label>{{ 'REGISTER.password' | translate }}</label>
+      <input formControlName="password"
+             type="password"
+             pInputText>
+      <app-field-error-message [control]="registerForm.controls.password"></app-field-error-message>
+    </div>
 
-  <div class="form-field">
-    <label>{{ 'REGISTER.confirm' | translate }}</label>
-    <input formControlName="confirmPassword"
-           type="password"
-           pInputText>
-    <app-field-error-message *ngIf="registerForm.controls.confirmPassword.touched" [control]="registerForm"></app-field-error-message>
-  </div>
+    <div class="form-field">
+      <label>{{ 'REGISTER.confirm' | translate }}</label>
+      <input formControlName="confirmPassword"
+             type="password"
+             pInputText>
+      <app-field-error-message
+        *ngIf="registerForm.controls.confirmPassword.touched"
+        [control]="registerForm">
+      </app-field-error-message>
+    </div>
 
-  <div class="actions">
-    <button
-      [disabled]="registerForm.invalid || (isLoading$ | async)"
-      [appSpinner]="isLoading$ | async"
-      (click)="register()"
-      pButton
-      label="{{ 'REGISTER.button' | translate }}"
-    ></button>
-  </div>
+    <div class="actions">
+      <button
+        [disabled]="registerForm.invalid || (isLoading$ | async)"
+        [appSpinner]="isLoading$ | async"
+        (click)="register()"
+        pButton
+        label="{{ 'REGISTER.button' | translate }}"
+      ></button>
+    </div>
 
-  <div class="link">
-    {{ 'REGISTER.link' | translate }}
-    <span routerLink="/login">{{ 'REGISTER.span' | translate }}</span>
-  </div>
-</form>
+    <div class="link">
+      {{ 'REGISTER.link' | translate }}
+      <span routerLink="/login">{{ 'REGISTER.span' | translate }}</span>
+    </div>
+  </form>
 
 </div>

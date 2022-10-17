@@ -59,13 +59,15 @@
     justify-content: center;
     width: 40vw;
     background-color: $light-400;
+
+    &-wrapper {
+      width: 100%;
+    }
   }
 }
 
 @media (max-width: 768px)
 {
-
-
   .auth {
     p-carousel {
       .image {
