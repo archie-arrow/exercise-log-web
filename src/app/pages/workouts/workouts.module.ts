@@ -1,11 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule } from '@angular/forms';
-import { SharedModule } from 'primeng/api';
-import { ButtonModule } from 'primeng/button';
-import { DropdownModule } from 'primeng/dropdown';
-import { InputTextModule } from 'primeng/inputtext';
-import { InputTextareaModule } from 'primeng/inputtextarea';
+import { SharedModule } from 'src/app/@shared/shared.module';
 import { AddExerciseComponent } from 'src/app/pages/workouts/components/add-exercise/add-exercise.component';
 import { ExerciseComponent } from 'src/app/pages/workouts/components/exercise/exercise.component';
 import { WorkoutsRoutingModule } from 'src/app/pages/workouts/workouts-routing.module';
@@ -14,15 +9,6 @@ import { WorkoutListComponent } from './components/workout-list/workout-list.com
 
 @NgModule({
   declarations: [ExerciseComponent, AddExerciseComponent, WorkoutsComponent, WorkoutListComponent],
-  imports: [
-    CommonModule,
-    SharedModule,
-    WorkoutsRoutingModule,
-    DropdownModule,
-    ReactiveFormsModule,
-    InputTextareaModule,
-    InputTextModule,
-    ButtonModule,
-  ],
+  imports: [CommonModule, SharedModule, WorkoutsRoutingModule],
 })
 export class WorkoutsModule {}

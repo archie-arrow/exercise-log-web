@@ -1,4 +1,4 @@
-<div class="list" *ngIf="(workouts | async) && (workouts | async)?.length; else empty">
+<div class="list" *ngIf="(workouts | async)?.length; else empty">
   <button class="button">
 
   </button>
@@ -8,10 +8,10 @@
 </div>
 
 <ng-template #empty>
-<div class="empty">
-  <img src="assets/images/pages/info-circle-filled.svg" alt="info" class="icon">
-  <div class="title">Seems like you don’t have any programs</div>
-  <div class="subtitle">Create new one and it will appear here</div>
-  <button pButton class="button" (click)="createWorkout()" label="Create new"></button>
-</div>
+  <div class="empty">
+    <img src="assets/images/pages/info-circle-filled.svg" alt="info" class="icon">
+    <div class="title">Seems like you don’t have any programs</div>
+    <div class="subtitle">Create new one and it will appear here</div>
+    <button pButton class="button" (click)="createWorkout()" label="Create new"></button>
+  </div>
 </ng-template>

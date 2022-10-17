@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/store/app.reducer';
 import { GetWorkouts } from 'src/app/store/workouts/workouts.actions';
@@ -8,6 +8,7 @@ import { selectWorkouts } from 'src/app/store/workouts/workouts.selector';
   selector: 'app-workout-list',
   templateUrl: './workout-list.component.html',
   styleUrls: ['./workout-list.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class WorkoutListComponent {
   workouts = this.store.select(selectWorkouts);
