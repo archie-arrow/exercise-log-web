@@ -65,4 +65,11 @@ export const workoutsReducer = createReducer(
       workouts: Pending.None,
     },
   })),
+  on(WorkoutsActions.CreateWorkoutError, (state) => ({
+    ...state,
+    pending: {
+      ...state.pending,
+      workouts: Pending.Error,
+    },
+  })),
 );

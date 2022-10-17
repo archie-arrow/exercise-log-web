@@ -11,7 +11,7 @@ import { selectWorkouts } from 'src/app/store/workouts/workouts.selector';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class WorkoutListComponent {
-  workouts = this.store.select(selectWorkouts);
+  workouts$ = this.store.select(selectWorkouts);
 
   constructor(private store: Store<AppState>) {
     this.store.dispatch(GetWorkouts());
