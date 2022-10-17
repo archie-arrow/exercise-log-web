@@ -1,0 +1,25 @@
+<nav
+  class="nav"
+  [class.nav_close]="!menuIsOpen"
+>
+  <a href="#" class="logo">
+    <img src="assets/images/shared/logo.svg" alt="logo">
+    <img class="text" src="assets/images/shared/exerciselog.svg" alt="exercise log">
+  </a>
+  <ul class="menu">
+    <li
+      class="menu-item"
+      *ngFor="let item of menuItems"
+      [routerLink]="item.redirect"
+      routerLinkActive="active"
+    >
+      <div class="icon" routerLinkActive="active" [innerHTML]="sanitizeHtml(item.iconSrc)"></div>
+      <div class="name">{{item.name}}</div>
+    </li>
+  </ul>
+  <button pButton class="button" [class.button-icon]="!menuIsOpen">
+    <img src="assets/images/pages/plus-icon.svg" alt="add">
+    <span *ngIf="menuIsOpen" class="line"></span>
+    <span class="text">Log workout</span>
+  </button>
+</nav>

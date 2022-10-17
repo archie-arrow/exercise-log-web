@@ -1,0 +1,18 @@
+@import "variable";
+
+.pages {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+
+  .container {
+    width: 100%;
+
+    .content {
+      padding: 1.625rem;
+      overflow-y: auto;
+      flex-grow: 1;
+      height: 100%;
+    }
+  }
+}
