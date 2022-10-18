@@ -1,5 +1,6 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
 import { WorkoutInterface } from 'src/app/@core/interfaces/workout.interface';
+import { Pending } from 'src/app/store/pending';
 import {
   workoutsFeatureKey,
   WorkoutsStateInterface,
@@ -11,4 +12,9 @@ export const selectWorkoutsState =
 export const selectWorkouts = createSelector(
   selectWorkoutsState,
   (state: WorkoutsStateInterface): WorkoutInterface[] => state.workouts,
+);
+
+export const selectWorkoutPending = createSelector(
+  selectWorkoutsState,
+  (state: WorkoutsStateInterface): boolean => state.pending.workouts === Pending.Active,
 );

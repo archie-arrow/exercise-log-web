@@ -9,7 +9,13 @@ import { WorkoutListComponent } from './components/workout-list/workout-list.com
 import { WorkoutCardComponent } from './components/workout-card/workout-card.component';
 
 @NgModule({
-  declarations: [ExerciseComponent, AddExerciseComponent, WorkoutsComponent, WorkoutListComponent, WorkoutCardComponent],
+  declarations: [
+    ExerciseComponent,
+    AddExerciseComponent,
+    WorkoutsComponent,
+    WorkoutListComponent,
+    WorkoutCardComponent,
+  ],
   imports: [CommonModule, SharedModule, WorkoutsRoutingModule],
 })
 export class WorkoutsModule {}
