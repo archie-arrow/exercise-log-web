@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { WorkoutInterface } from 'src/app/@core/interfaces/workout.interface';
+import { Difficulty } from 'src/app/pages/constans';
 
 @Component({
   selector: 'app-workout-card',
@@ -8,6 +9,7 @@ import { WorkoutInterface } from 'src/app/@core/interfaces/workout.interface';
 })
 export class WorkoutCardComponent {
   @Input() workout!: WorkoutInterface;
+  difficulty = Difficulty;
 
   constructor() { }
 }
