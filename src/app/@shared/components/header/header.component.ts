@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { Store } from '@ngrx/store';
@@ -18,6 +18,7 @@ import {
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HeaderComponent {
   @Output() toggle = new EventEmitter<boolean>();
@@ -31,9 +32,10 @@ export class HeaderComponent {
     map((name) => name.split(' ').reduce((prev, next) => prev + next[0], '')),
   );
 
-  constructor(private router: Router, private store: Store<AppState>) {
+  constructor(private router: Router, private store: Store<AppState>, private cdr: ChangeDetectorRef) {
     this.router.events.pipe(untilDestroyed(this)).subscribe(() => {
       this.title = this.getTitle(this.router.url);
+      this.cdr.detectChanges();
     });
     this.store.dispatch(GetCurrentUser());
   }
