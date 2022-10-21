@@ -2,11 +2,13 @@ import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { catchError, map, of, switchMap } from 'rxjs';
 import { WorkoutsApiService } from 'src/app/@core/api/workouts.api.service';
-import { ExerciseInterface } from 'src/app/@core/interfaces/exercise.interface';
 import { WorkoutInterface } from 'src/app/@core/interfaces/workout.interface';
 import {
   CreateWorkoutError,
   CreateWorkoutSuccess,
+  DeleteWorkout,
+  DeleteWorkoutError,
+  DeleteWorkoutSuccess,
   GetWorkoutsError,
   GetWorkoutsSuccess,
   WorkoutsActions,
@@ -36,10 +38,25 @@ export class WorkoutsEffects {
   createWorkout$ = createEffect(() => {
     return this.actions$.pipe(
       ofType(WorkoutsActionsTypes.CreateWorkout),
-      switchMap((action: { name: string; exercises: ExerciseInterface[] }) =>
+      switchMap((action: { name: string; exercises: string[] }) =>
         this.workoutsApiService.createWorkout(action).pipe(
           map((workout: WorkoutInterface) => CreateWorkoutSuccess({ workout })),
           catchError(() => of(CreateWorkoutError())),
+        ),
+      ),
+    );
+  });
+
+  /*
+   * Delete Workout
+   */
+  deleteWorkout$ = createEffect(() => {
+    return this.actions$.pipe(
+      ofType(WorkoutsActionsTypes.DeleteWorkout),
+      switchMap((action: { id: string }) =>
+        this.workoutsApiService.deleteWorkout(action.id).pipe(
+          map(() => DeleteWorkoutSuccess(action)),
+          catchError(() => of(DeleteWorkoutError())),
         ),
       ),
     );

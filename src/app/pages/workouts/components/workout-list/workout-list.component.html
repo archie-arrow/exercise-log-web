@@ -1,3 +1,5 @@
+<app-filters></app-filters>
+
 <div class="list" *ngIf="(workouts$ | async)?.length && (isLoading$ | async) === false">
   <div class="filters"></div>
   <div class="cards">
@@ -9,6 +11,8 @@
     </div>
   </div>
 </div>
+
+<p-confirmDialog [style]="{width: '50vw'}" [baseZIndex]="10000" rejectButtonStyleClass="p-button-text"></p-confirmDialog>
 
 <app-loading  *ngIf="(isLoading$ | async) === true"></app-loading>
 

@@ -1,8 +1,8 @@
 import {
   Language,
   LanguageOptionInterface,
-} from 'src/app/@shared/interfaces/language-option.interface';
-import { MenuItemInterface } from 'src/app/@shared/interfaces/menuItem.interface';
+} from 'src/app/@core/interfaces/language-option.interface';
+import { MenuItemInterface } from 'src/app/@core/interfaces/menuItem.interface';
 
 export const LANGUAGE_OPTIONS: LanguageOptionInterface[] = [
   { code: Language.ENG, name: 'ENG' },

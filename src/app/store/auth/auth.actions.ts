@@ -1,7 +1,7 @@
 import { createAction, props, union } from '@ngrx/store';
-import { LoginInterface } from 'src/app/@auth/interfaces/login.interface';
-import { RegisterInterface } from 'src/app/@auth/interfaces/register.interface';
-import { ResetPasswordInterface } from 'src/app/@auth/interfaces/reset-password.interface';
+import { LoginInterface } from 'src/app/@core/interfaces/login.interface';
+import { RegisterInterface } from 'src/app/@core/interfaces/register.interface';
+import { ResetPasswordInterface } from 'src/app/@core/interfaces/reset-password.interface';
 
 export enum AuthActionsTypes {
   ForgotPassword = '[Forgot Password Component] Forgot Password',

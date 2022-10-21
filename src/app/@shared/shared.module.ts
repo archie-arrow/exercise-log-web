@@ -4,8 +4,10 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
+import { ConfirmationService, MessageService } from 'primeng/api';
 import { AvatarModule } from 'primeng/avatar';
 import { CarouselModule } from 'primeng/carousel';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { DropdownModule } from 'primeng/dropdown';
 import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
@@ -19,6 +21,8 @@ import { SpinnerDirective } from './directives/spinner.directive';
 import { HeaderComponent } from './components/header/header.component';
 import { EmptyComponent } from './components/empty/empty.component';
 import { LoadingComponent } from './components/loading/loading.component';
+import { MessagesModule } from 'primeng/messages';
+import { MessageModule } from 'primeng/message';
 
 @NgModule({
   declarations: [
@@ -55,6 +59,10 @@ import { LoadingComponent } from './components/loading/loading.component';
     EmptyComponent,
     LoadingComponent,
     ProgressSpinnerModule,
+    ConfirmDialogModule,
+    MessagesModule,
+    MessageModule,
   ],
+  providers: [ConfirmationService, MessageService],
 })
 export class SharedModule {}

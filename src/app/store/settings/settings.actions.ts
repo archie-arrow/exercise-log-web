@@ -1,5 +1,5 @@
 import { createAction, props, union } from '@ngrx/store';
-import { Language } from 'src/app/@shared/interfaces/language-option.interface';
+import { Language } from 'src/app/@core/interfaces/language-option.interface';
 
 export enum SettingsActionsTypes {
   ChangeLanguage = '[Translation Service] Change Language',

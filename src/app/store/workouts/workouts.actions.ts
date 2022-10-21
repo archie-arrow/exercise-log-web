@@ -10,6 +10,10 @@ export enum WorkoutsActionsTypes {
   CreateWorkout = '[Workout List component] Create Workout',
   CreateWorkoutSuccess = '[Workouts Api] Created Workout Success',
   CreateWorkoutError = '[Workouts Api] Created Workout Error',
+
+  DeleteWorkout = '[Workout Card component] Delete Workout',
+  DeleteWorkoutSuccess = '[Workouts Api] Delete Workout Success',
+  DeleteWorkoutError = '[Workouts Api] Delete Workout Error',
 }
 
 /*
@@ -29,7 +33,7 @@ export const GetWorkoutsError = createAction(WorkoutsActionsTypes.GetWorkoutsErr
  */
 export const CreateWorkout = createAction(
   WorkoutsActionsTypes.CreateWorkout,
-  props<{ name: string; exercises: ExerciseInterface[] }>(),
+  props<{ name: string; exercises: string[] }>(),
 );
 
 export const CreateWorkoutSuccess = createAction(
@@ -38,6 +42,21 @@ export const CreateWorkoutSuccess = createAction(
 );
 
 export const CreateWorkoutError = createAction(WorkoutsActionsTypes.CreateWorkoutError);
+
+/*
+ * Delete Workouts
+ */
+export const DeleteWorkout = createAction(
+  WorkoutsActionsTypes.DeleteWorkout,
+  props<{ id: string }>(),
+);
+
+export const DeleteWorkoutSuccess = createAction(
+  WorkoutsActionsTypes.DeleteWorkoutSuccess,
+  props<{ id: string }>(),
+);
+
+export const DeleteWorkoutError = createAction(WorkoutsActionsTypes.DeleteWorkoutError);
 
 const actionsUnion = union({
   /*
@@ -53,6 +72,13 @@ const actionsUnion = union({
   CreateWorkout,
   CreateWorkoutSuccess,
   CreateWorkoutError,
+
+  /*
+   * Delete Workouts
+   */
+  DeleteWorkout,
+  DeleteWorkoutSuccess,
+  DeleteWorkoutError,
 });
 
 export type WorkoutsActions = typeof actionsUnion;

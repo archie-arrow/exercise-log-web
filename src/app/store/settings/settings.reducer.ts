@@ -1,5 +1,5 @@
 import { createReducer, on } from '@ngrx/store';
-import { Language } from 'src/app/@shared/interfaces/language-option.interface';
+import { Language } from 'src/app/@core/interfaces/language-option.interface';
 import * as SettingsActions from './settings.actions';
 
 export const settingsFeatureKey = 'settingsState';

@@ -1,6 +1,6 @@
 <div
   class="card"
-  [ngClass]="workout.difficulty.toLocaleLowerCase()"
+  [ngClass]="workout.difficulty.toLowerCase()"
   >
   <div class="title">{{workout.name}}</div>
   <ul class="list">
@@ -25,6 +25,12 @@
   </ul>
   <div class="buttons">
     <button pButton pRipple type="button" icon="pi pi-pencil" class="p-button-rounded p-button-danger p-button-text small"></button>
-    <button pButton pRipple type="button" icon="pi pi-trash" class="p-button-rounded p-button-danger p-button-text small"></button>
+    <button
+      (click)="deleteWorkout()"
+      pButton
+      pRipple
+      type="button"
+      icon="pi pi-trash"
+      class="p-button-rounded p-button-danger p-button-text small"></button>
   </div>
 </div>
