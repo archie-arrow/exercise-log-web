@@ -10,6 +10,7 @@ import { WorkoutsComponent } from 'src/app/pages/workouts/workouts.component';
 import { WorkoutListComponent } from './components/workout-list/workout-list.component';
 import { WorkoutCardComponent } from './components/workout-card/workout-card.component';
 import { FiltersComponent } from './components/filters/filters.component';
+import { WorkoutPageComponent } from './components/workout-page/workout-page.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { FiltersComponent } from './components/filters/filters.component';
     WorkoutListComponent,
     WorkoutCardComponent,
     FiltersComponent,
+    WorkoutPageComponent,
   ],
   imports: [CommonModule, SharedModule, WorkoutsRoutingModule, CheckboxModule, SelectButtonModule],
 })

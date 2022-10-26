@@ -5,7 +5,7 @@ export const sortByName = (workouts: WorkoutInterface[]) => {
   return workouts.sort((a, b) => (a.name.toLowerCase() < b.name.toLowerCase() ? 1 : -1));
 };
 
-export const applyFiltersAndSorting = (
+export const FilteringAndSorting = (
   workouts: WorkoutInterface[],
   options: FilterInterface | Partial<FilterInterface>,
 ): WorkoutInterface[] => {

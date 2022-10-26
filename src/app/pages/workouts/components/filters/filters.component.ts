@@ -46,9 +46,9 @@ export class FiltersComponent {
 
   form = new FormGroup<FormInterface>({
     search: new FormControl(this.startValue.search, { nonNullable: true }),
-    difficulty: new FormControl(null),
-    checkbox: new FormControl(false, { nonNullable: true }),
-    sort: new FormControl(Sorting.DESC, { nonNullable: true }),
+    difficulty: new FormControl(this.startValue.difficulty),
+    checkbox: new FormControl(this.startValue.checkbox, { nonNullable: true }),
+    sort: new FormControl(this.startValue.sort, { nonNullable: true }),
   });
 
   constructor() {

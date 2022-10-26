@@ -1,6 +1,7 @@
 <div
   class="card"
   [ngClass]="workout.difficulty.toLowerCase()"
+  [routerLink]="[workout.id]"
   >
   <div class="title">{{workout.name}}</div>
   <ul class="list">

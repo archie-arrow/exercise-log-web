@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { map, take } from 'rxjs';
 import { FilterInterface } from 'src/app/pages/workouts/components/filters/filters.component';
-import { applyFiltersAndSorting } from 'src/app/pages/workouts/helpers';
+import { FilteringAndSorting } from 'src/app/pages/workouts/helpers';
 import { AppState } from 'src/app/store/app.reducer';
 import { GetWorkouts } from 'src/app/store/workouts/workouts.actions';
 import { selectWorkoutPending, selectWorkouts } from 'src/app/store/workouts/workouts.selector';
@@ -26,9 +26,9 @@ export class WorkoutListComponent {
     console.log('create workout');
   }
 
-  sort(filters: FilterInterface | Partial<FilterInterface>) {
+  applyFilters(filters: FilterInterface | Partial<FilterInterface>) {
     this.filteredWorkouts$ = this.workouts$.pipe(
-      map((items) => applyFiltersAndSorting(items, filters)),
+      map((items) => FilteringAndSorting(items, filters)),
       take(1),
     );
   }
