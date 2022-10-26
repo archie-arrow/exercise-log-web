@@ -19,7 +19,7 @@
      <label for="binary">With additional equipment</label>
    </div>
 
-   <button pButton pRipple type="button">Reset</button>
+   <button (click)="form.reset()" pButton pRipple type="button">Reset</button>
  </div>
   <div class="buttons">
     <p-selectButton formControlName="sort" [options]="options" optionValue="value" optionLabel="icon">

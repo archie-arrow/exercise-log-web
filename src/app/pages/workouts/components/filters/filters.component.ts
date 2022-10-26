@@ -1,8 +1,24 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Output } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
+import { startWith } from 'rxjs';
+import { Sorting } from 'src/app/@core/enums/sorting.enum';
 import { enumToDropdownOptions } from 'src/app/@shared/helpers';
 import { Difficulty } from 'src/app/pages/constans';
+
+export interface FormInterface {
+  search: FormControl<string>;
+  difficulty: FormControl<Difficulty | null>;
+  checkbox: FormControl<boolean>;
+  sort: FormControl<Sorting>;
+}
+
+export interface FilterInterface {
+  search: string;
+  difficulty: Difficulty | null;
+  checkbox: boolean;
+  sort: Sorting;
+}
 
 @UntilDestroy()
 @Component({
@@ -12,21 +28,32 @@ import { Difficulty } from 'src/app/pages/constans';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FiltersComponent {
-  // @Input() items$!: Observable<WorkoutInterface[]>;
+  @Output() filter = new EventEmitter<FilterInterface | Partial<FilterInterface>>();
 
   difficulty = enumToDropdownOptions(Difficulty);
+
   options = [
-    { icon: 'pi pi-sort-alpha-down', value: 'sort-alpha-down' },
-    { icon: 'pi pi-sort-alpha-up', value: 'sort-alpha-up' },
+    { icon: 'pi pi-sort-alpha-down', value: Sorting.DESC },
+    { icon: 'pi pi-sort-alpha-up', value: Sorting.ASC },
   ];
-  form = new FormGroup({
-    search: new FormControl('', {}),
-    difficulty: new FormControl(null, {}),
-    checkbox: new FormControl(false, {}),
-    sort: new FormControl('sort-alpha-down', {}),
+
+  startValue: FilterInterface = {
+    checkbox: false,
+    difficulty: null,
+    search: '',
+    sort: Sorting.DESC,
+  };
+
+  form = new FormGroup<FormInterface>({
+    search: new FormControl(this.startValue.search, { nonNullable: true }),
+    difficulty: new FormControl(null),
+    checkbox: new FormControl(false, { nonNullable: true }),
+    sort: new FormControl(Sorting.DESC, { nonNullable: true }),
   });
 
   constructor() {
-    this.form.controls.search.valueChanges.pipe(untilDestroyed(this));
+    this.form.valueChanges
+      .pipe(startWith(this.startValue), untilDestroyed(this))
+      .subscribe((values) => this.filter.emit(values));
   }
 }

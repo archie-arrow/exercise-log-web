@@ -1,40 +1,5 @@
-<!--<app-filters></app-filters>-->
-<!--*ngIf="(workouts$ | async)?.length && (isLoading$ | async) === false"-->
-<div class="list" >
-  <div class="filters">
-    <form class="filters" [formGroup]="form">
-      <div class="left-side">
-        <div class="form-field">
-          <input
-            formControlName="search"
-            class="p-inputtext-sm"
-            placeholder="Search"
-            type="text"
-            pInputText>
-        </div>
-
-        <div class="form-field">
-          <p-dropdown formControlName="difficulty" placeholder="Difficulty" [showClear]="true" class="p-inputtext-sm" [options]="difficulty" optionLabel="name" optionValue="name">
-          </p-dropdown>
-        </div>
-
-        <div class="field-checkbox">
-          <p-checkbox formControlName="checkbox" [binary]="true" id="binary"></p-checkbox>
-          <label for="binary">With additional equipment</label>
-        </div>
-
-        <button pButton pRipple type="button">Reset</button>
-      </div>
-      <div class="buttons">
-        <p-selectButton formControlName="sort" [options]="options" optionValue="value" optionLabel="icon">
-          <ng-template let-item>
-            <i [class]="item.icon"></i>
-          </ng-template>
-        </p-selectButton>
-      </div>
-    </form>
-
-  </div>
+<div class="list" *ngIf="(workouts$ | async)?.length && (isLoading$ | async) === false">
+  <app-filters (filter)="sort($event)"></app-filters>
   <div class="cards">
     <button class="button" (click)="createWorkout()">
       <img src="assets/images/pages/plus-outlined-red.svg" alt="add">
@@ -56,5 +21,3 @@
   buttonName="Create new"
   (buttonClick)="createWorkout()"
 ></app-empty>
-
-
