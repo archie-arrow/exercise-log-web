@@ -1,12 +1,4 @@
-//import { Renderer } from '@angular/compiler-cli/ngcc/src/rendering/renderer';
-import {
-  ChangeDetectionStrategy,
-  Component,
-  ElementRef,
-  Input,
-  Renderer2,
-  ViewChild,
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, ElementRef, Input } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { ConfirmationService } from 'primeng/api';
 import { WorkoutInterface } from 'src/app/@core/interfaces/workout.interface';
@@ -37,7 +29,6 @@ export class WorkoutCardComponent {
     });
   }
 
-  //[routerLink]="[workout.id]"
   navigateToWorkout() {
     console.log(this.elementRef);
   }

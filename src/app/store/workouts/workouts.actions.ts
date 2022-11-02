@@ -1,5 +1,4 @@
 import { createAction, props, union } from '@ngrx/store';
-import { ExerciseInterface } from 'src/app/@core/interfaces/exercise.interface';
 import { WorkoutInterface } from 'src/app/@core/interfaces/workout.interface';
 
 export enum WorkoutsActionsTypes {
