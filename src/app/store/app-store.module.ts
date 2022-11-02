@@ -4,6 +4,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { ROOT_REDUCERS } from 'src/app/store/app.reducer';
 import { AuthEffects } from 'src/app/store/auth/auth.effects';
 import { addTokenToLocalStorage } from 'src/app/store/auth/auth.meta-reducer';
+import { ExerciseEffects } from 'src/app/store/exercise/exercise.effects';
 import { SettingsEffects } from 'src/app/store/settings/settings.effects';
 import { SettingsMetaReducer } from 'src/app/store/settings/settings.meta-reducer';
 import { UserEffects } from 'src/app/store/user/user.effects';
@@ -18,7 +19,13 @@ export const metaReducers: MetaReducer[] = [SettingsMetaReducer(), addTokenToLoc
   imports: [
     StoreModule.forRoot(ROOT_REDUCERS, { metaReducers }),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
-    EffectsModule.forRoot([AuthEffects, SettingsEffects, UserEffects, WorkoutsEffects]),
+    EffectsModule.forRoot([
+      AuthEffects,
+      SettingsEffects,
+      UserEffects,
+      WorkoutsEffects,
+      ExerciseEffects,
+    ]),
   ],
 })
 export class AppStoreModule {}

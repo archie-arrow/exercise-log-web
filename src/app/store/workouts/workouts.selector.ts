@@ -14,6 +14,11 @@ export const selectWorkouts = createSelector(
   (state: WorkoutsStateInterface): WorkoutInterface[] => state.workouts,
 );
 
+export const selectedWorkout = createSelector(
+  selectWorkoutsState,
+  (state: WorkoutsStateInterface): WorkoutInterface | null => state.selectedWorkout,
+);
+
 export const selectWorkoutPending = createSelector(
   selectWorkoutsState,
   (state: WorkoutsStateInterface): boolean => state.pending.workouts === Pending.Active,

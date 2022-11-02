@@ -1,7 +1,10 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Store } from '@ngrx/store';
 import { enumToDropdownOptions } from 'src/app/@shared/helpers';
 import { Difficulty, Region, WeightType } from 'src/app/pages/constans';
+import { AppState } from 'src/app/store/app.reducer';
+import { CreateExercise } from 'src/app/store/exercise/exercise.actions';
 
 export interface AddExerciseInterface {
   name: FormControl<string>;
@@ -28,7 +31,7 @@ export class AddExerciseComponent {
       nonNullable: true,
     }),
     description: new FormControl('', {
-      validators: [Validators.required],
+      validators: [],
       nonNullable: true,
     }),
     difficulty: new FormControl(Difficulty.Easy, {
@@ -44,14 +47,20 @@ export class AddExerciseComponent {
       nonNullable: true,
     }),
     secondaryRegion: new FormControl(Region.Abdomen, {
-      validators: [Validators.required],
+      validators: [],
       nonNullable: true,
     }),
   });
 
-  constructor() {
+  constructor(private store: Store<AppState>) {
     this.form.valueChanges.subscribe(() => {
       console.log(this.form.getRawValue());
     });
+  }
+
+  addExercise() {
+    if (this.form.valid) {
+      this.store.dispatch(CreateExercise({ exercise: this.form.getRawValue() }));
+    }
   }
 }

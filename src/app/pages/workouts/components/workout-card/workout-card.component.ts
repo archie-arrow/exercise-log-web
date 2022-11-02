@@ -1,4 +1,12 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+//import { Renderer } from '@angular/compiler-cli/ngcc/src/rendering/renderer';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  ElementRef,
+  Input,
+  Renderer2,
+  ViewChild,
+} from '@angular/core';
 import { Store } from '@ngrx/store';
 import { ConfirmationService } from 'primeng/api';
 import { WorkoutInterface } from 'src/app/@core/interfaces/workout.interface';
@@ -14,7 +22,11 @@ import { DeleteWorkout } from 'src/app/store/workouts/workouts.actions';
 export class WorkoutCardComponent {
   @Input() workout!: WorkoutInterface;
 
-  constructor(private confirmationService: ConfirmationService, private store: Store<AppState>) {}
+  constructor(
+    private confirmationService: ConfirmationService,
+    private store: Store<AppState>,
+    private elementRef: ElementRef,
+  ) {}
 
   deleteWorkout(): void {
     this.confirmationService.confirm({
@@ -23,5 +35,10 @@ export class WorkoutCardComponent {
       icon: 'pi pi-trash',
       accept: () => this.store.dispatch(DeleteWorkout({ id: this.workout.id })),
     });
+  }
+
+  //[routerLink]="[workout.id]"
+  navigateToWorkout() {
+    console.log(this.elementRef);
   }
 }

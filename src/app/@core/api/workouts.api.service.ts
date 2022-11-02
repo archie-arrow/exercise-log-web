@@ -16,6 +16,10 @@ export class WorkoutsApiService {
     return this.http.get<WorkoutInterface[]>(this.url());
   }
 
+  getWorkout(id: string): Observable<WorkoutInterface> {
+    return this.http.get<WorkoutInterface>(this.url(id));
+  }
+
   createWorkout(workout: { name: string; exercises: string[] }): Observable<WorkoutInterface> {
     return this.http.post<WorkoutInterface>(this.url(), workout);
   }

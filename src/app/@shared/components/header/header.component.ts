@@ -29,7 +29,7 @@ import {
 export class HeaderComponent {
   @Output() toggle = new EventEmitter<boolean>();
 
-  title = '';
+  title = this.getTitle(this.router.url);
   userIsLoading$ = this.store.select(selectUserLoading);
   email$ = this.store.select(selectUserEmail);
   name$ = this.store.select(selectUserName);
@@ -43,14 +43,15 @@ export class HeaderComponent {
     private store: Store<AppState>,
     private cdr: ChangeDetectorRef,
   ) {
+    this.store.dispatch(GetCurrentUser());
+
     this.router.events.pipe(untilDestroyed(this)).subscribe(() => {
       this.title = this.getTitle(this.router.url);
       this.cdr.detectChanges();
     });
-    this.store.dispatch(GetCurrentUser());
   }
 
   getTitle(url: string): string {
-    return menuItems.find((item: MenuItemInterface) => item.redirect === url)?.name || '';
+    return menuItems.find((item: MenuItemInterface) => url.includes(item.redirect))?.name || '';
   }
 }

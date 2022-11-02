@@ -7,6 +7,7 @@ export const workoutsFeatureKey = 'workoutsState';
 
 export interface WorkoutsStateInterface {
   workouts: WorkoutInterface[];
+  selectedWorkout: WorkoutInterface | null;
   pending: {
     workouts: Pending;
     deleteWorkout: Pending;
@@ -15,6 +16,7 @@ export interface WorkoutsStateInterface {
 
 export const initialState: WorkoutsStateInterface = {
   workouts: [],
+  selectedWorkout: null,
   pending: {
     workouts: Pending.None,
     deleteWorkout: Pending.None,
@@ -43,6 +45,32 @@ export const workoutsReducer = createReducer(
     },
   })),
   on(WorkoutsActions.GetWorkoutsError, (state) => ({
+    ...state,
+    pending: {
+      ...state.pending,
+      workouts: Pending.Error,
+    },
+  })),
+
+  /*
+   * Get Workout
+   */
+  on(WorkoutsActions.GetWorkout, (state) => ({
+    ...state,
+    pending: {
+      ...state.pending,
+      workouts: Pending.Active,
+    },
+  })),
+  on(WorkoutsActions.GetWorkoutSuccess, (state, action) => ({
+    ...state,
+    selectedWorkout: action.workout,
+    pending: {
+      ...state.pending,
+      workouts: Pending.None,
+    },
+  })),
+  on(WorkoutsActions.GetWorkoutError, (state) => ({
     ...state,
     pending: {
       ...state.pending,

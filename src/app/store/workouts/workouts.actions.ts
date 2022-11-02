@@ -7,6 +7,10 @@ export enum WorkoutsActionsTypes {
   GetWorkoutsSuccess = '[Workouts Api] Get Workouts Success',
   GetWorkoutsError = '[Workouts Api] Get Workouts Error',
 
+  GetWorkout = '[Workouts Page component] Get Workout',
+  GetWorkoutSuccess = '[Workouts Api] Get Workout Success',
+  GetWorkoutError = '[Workouts Api] Get Workout Error',
+
   CreateWorkout = '[Workout List component] Create Workout',
   CreateWorkoutSuccess = '[Workouts Api] Created Workout Success',
   CreateWorkoutError = '[Workouts Api] Created Workout Error',
@@ -27,6 +31,18 @@ export const GetWorkoutsSuccess = createAction(
 );
 
 export const GetWorkoutsError = createAction(WorkoutsActionsTypes.GetWorkoutsError);
+
+/*
+ * Get Workout
+ */
+export const GetWorkout = createAction(WorkoutsActionsTypes.GetWorkout, props<{ id: string }>());
+
+export const GetWorkoutSuccess = createAction(
+  WorkoutsActionsTypes.GetWorkoutSuccess,
+  props<{ workout: WorkoutInterface }>(),
+);
+
+export const GetWorkoutError = createAction(WorkoutsActionsTypes.GetWorkoutError);
 
 /*
  * Create Workouts
@@ -65,6 +81,13 @@ const actionsUnion = union({
   GetWorkouts,
   GetWorkoutsSuccess,
   GetWorkoutsError,
+
+  /*
+   * Get Workout
+   */
+  GetWorkout,
+  GetWorkoutSuccess,
+  GetWorkoutError,
 
   /*
    * Create Workout

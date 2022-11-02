@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { map, take } from 'rxjs';
 import { FilterInterface } from 'src/app/pages/workouts/components/filters/filters.component';
@@ -18,12 +19,12 @@ export class WorkoutListComponent {
   isLoading$ = this.store.select(selectWorkoutPending);
   filteredWorkouts$ = this.workouts$;
 
-  constructor(private store: Store<AppState>) {
+  constructor(private store: Store<AppState>, private router: Router) {
     this.store.dispatch(GetWorkouts());
   }
 
   createWorkout() {
-    console.log('create workout');
+    this.router.navigate(['workouts/create']);
   }
 
   applyFilters(filters: FilterInterface | Partial<FilterInterface>) {

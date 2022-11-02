@@ -6,11 +6,12 @@ import { WorkoutInterface } from 'src/app/@core/interfaces/workout.interface';
 import {
   CreateWorkoutError,
   CreateWorkoutSuccess,
-  DeleteWorkout,
   DeleteWorkoutError,
   DeleteWorkoutSuccess,
+  GetWorkoutError,
   GetWorkoutsError,
   GetWorkoutsSuccess,
+  GetWorkoutSuccess,
   WorkoutsActions,
   WorkoutsActionsTypes,
 } from 'src/app/store/workouts/workouts.actions';
@@ -27,6 +28,21 @@ export class WorkoutsEffects {
         this.workoutsApiService.getWorkouts().pipe(
           map((workouts: WorkoutInterface[]) => GetWorkoutsSuccess({ workouts })),
           catchError(() => of(GetWorkoutsError())),
+        ),
+      ),
+    );
+  });
+
+  /*
+   * Get Workout
+   */
+  getWorkout$ = createEffect(() => {
+    return this.actions$.pipe(
+      ofType(WorkoutsActionsTypes.GetWorkout),
+      switchMap((action: { id: string }) =>
+        this.workoutsApiService.getWorkout(action.id).pipe(
+          map((workout: WorkoutInterface) => GetWorkoutSuccess({ workout })),
+          catchError(() => of(GetWorkoutError())),
         ),
       ),
     );
