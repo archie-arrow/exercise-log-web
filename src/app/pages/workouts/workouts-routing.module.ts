@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { EditWorkoutComponent } from 'src/app/pages/workouts/components/edit-workout/edit-workout.component';
+import { CreateWorkoutComponent } from 'src/app/pages/workouts/components/create-workout/create-workout.component';
 import { WorkoutListComponent } from 'src/app/pages/workouts/components/workout-list/workout-list.component';
 import { WorkoutPageComponent } from 'src/app/pages/workouts/components/workout-page/workout-page.component';
 import { WorkoutsComponent } from 'src/app/pages/workouts/workouts.component';
@@ -16,11 +16,11 @@ const routes: Routes = [
       },
       {
         path: 'create',
-        component: EditWorkoutComponent,
+        component: CreateWorkoutComponent,
       },
       {
         path: 'edit/:id',
-        component: EditWorkoutComponent,
+        component: CreateWorkoutComponent,
       },
       {
         path: ':id',
