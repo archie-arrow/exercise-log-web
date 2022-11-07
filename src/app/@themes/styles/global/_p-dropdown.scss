@@ -1,6 +1,9 @@
 @import "../variable";
 
 .p-dropdown {
+  width: 100% !important;
+  height: 2.25rem;
+
   &:not(.p-disabled):hover {
     border-color: $light-100;
   }

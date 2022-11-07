@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CheckboxModule } from 'primeng/checkbox';
 import { SelectButtonModule } from 'primeng/selectbutton';
+import { TableModule } from 'primeng/table';
 import { SharedModule } from 'src/app/@shared/shared.module';
 import { AddExerciseComponent } from 'src/app/pages/workouts/components/add-exercise/add-exercise.component';
 import { ExerciseComponent } from 'src/app/pages/workouts/components/exercise/exercise.component';
@@ -24,6 +25,13 @@ import { CreateWorkoutComponent } from 'src/app/pages/workouts/components/create
     WorkoutPageComponent,
     CreateWorkoutComponent,
   ],
-  imports: [CommonModule, SharedModule, WorkoutsRoutingModule, CheckboxModule, SelectButtonModule],
+  imports: [
+    CommonModule,
+    SharedModule,
+    WorkoutsRoutingModule,
+    CheckboxModule,
+    SelectButtonModule,
+    TableModule,
+  ],
 })
 export class WorkoutsModule {}

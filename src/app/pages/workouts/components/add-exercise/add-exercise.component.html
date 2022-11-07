@@ -1,3 +1,4 @@
+<h2>Create new exercise</h2>
 <form action="" class="form" [formGroup]="form">
   <div class="form-field">
     <label>Name</label>
@@ -7,6 +8,11 @@
   </div>
 
   <div class="form-field">
+    <label>Weight Type</label>
+    <p-dropdown [options]="weightType" formControlName="weightType" optionLabel="name" optionValue="name"></p-dropdown>
+  </div>
+
+  <div class="form-field description">
     <label>Description</label>
     <textarea formControlName="description" rows="5" cols="30" pInputTextarea></textarea>
   </div>
@@ -18,19 +24,14 @@
   </div>
 
   <div class="form-field">
-    <label>Weight Type</label>
-    <p-dropdown [options]="weightType" formControlName="weightType" optionLabel="name" optionValue="name"></p-dropdown>
-  </div>
-
-  <div class="form-field">
     <label>Primary Region</label>
     <p-dropdown [options]="region" formControlName="primaryRegion" optionLabel="name" optionValue="name"></p-dropdown>
   </div>
 
-  <div class="form-field">
+  <div class="form-field secondary">
     <label>Secondary Region</label>
     <p-dropdown [options]="region" formControlName="secondaryRegion" optionLabel="name" optionValue="name"></p-dropdown>
   </div>
 
-  <button (click)="addExercise()">Add</button>
+  <button class='button' pButton pRipple (click)="addExercise()">Add</button>
 </form>

@@ -10,8 +10,11 @@ $header-height: 5.5rem;
   .container {
     width: 100%;
 
-    .content {
+    .padding {
       padding: 1.625rem;
+    }
+
+    .content {
       overflow-y: auto;
       flex-grow: 1;
       height: calc(100vh - $header-height);
