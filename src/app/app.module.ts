@@ -5,6 +5,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { JwtModule } from '@auth0/angular-jwt';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { ConfirmationService, MessageService } from 'primeng/api';
+import { CoreModule } from 'src/app/@core/core.module';
 import { SharedModule } from 'src/app/@shared/shared.module';
 import { AppRoutingModule } from 'src/app/app-routing.module';
 import { AppStoreModule } from 'src/app/store/app-store.module';
@@ -26,6 +28,7 @@ export function tokenGetter() {
     BrowserModule,
     AppRoutingModule,
     SharedModule,
+    CoreModule,
     AppStoreModule,
     BrowserAnimationsModule,
     HttpClientModule,
@@ -43,7 +46,7 @@ export function tokenGetter() {
       },
     }),
   ],
-  providers: [],
+
   bootstrap: [AppComponent],
 })
 export class AppModule {}

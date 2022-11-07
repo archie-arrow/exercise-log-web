@@ -1,0 +1,57 @@
+@import "variable";
+
+.filters {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+
+  .left-side {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 1rem;
+
+    .form-field input {
+      margin-bottom: 0 !important;
+      font-size: 0.8rem !important;
+    }
+
+    .form-field input,
+    .form-field p-dropdown,
+    button {
+      height: 2.25rem;
+    }
+
+    .field-checkbox {
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    button .p-button-label {
+        font-weight: 400 !important;
+      }
+  }
+
+  .buttons {
+    display: flex;
+    gap: 0.5rem;
+
+    p-selectButton {
+      height: 2.25rem;
+    }
+
+    button {
+      height: 2.25rem;
+      width:  2.25rem;
+      color: black;
+    }
+
+    .active {
+      color: $primary-300;
+    }
+  }
+}
+
+

@@ -4,7 +4,7 @@ import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { Store } from '@ngrx/store';
 import { SLIDER_ITEMS } from 'src/app/@auth/constants';
 import { LANGUAGE_OPTIONS } from 'src/app/@shared/constants';
-import { Language } from 'src/app/@shared/interfaces/language-option.interface';
+import { Language } from 'src/app/@core/interfaces/language-option.interface';
 import { AppState } from 'src/app/store/app.reducer';
 import { ResetAuthState } from 'src/app/store/auth/auth.actions';
 import { ChangeLanguage } from 'src/app/store/settings/settings.actions';

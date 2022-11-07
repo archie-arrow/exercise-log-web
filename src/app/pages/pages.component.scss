@@ -1,5 +1,7 @@
 @import "variable";
 
+$header-height: 5.5rem;
+
 .pages {
   display: flex;
   height: 100vh;
@@ -8,11 +10,14 @@
   .container {
     width: 100%;
 
-    .content {
+    .padding {
       padding: 1.625rem;
+    }
+
+    .content {
       overflow-y: auto;
       flex-grow: 1;
-      height: 100%;
+      height: calc(100vh - $header-height);
     }
   }
 }

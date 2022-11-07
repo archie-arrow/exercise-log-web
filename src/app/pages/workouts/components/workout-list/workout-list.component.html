@@ -1,0 +1,28 @@
+<div class="list" *ngIf="(workouts$ | async)?.length && (isLoading$ | async) === false">
+  <app-filters (filter)="applyFilters($event)"></app-filters>
+  <div class="cards">
+    <button class="button" (click)="createWorkout()">
+      <img src="assets/images/pages/plus-outlined-red.svg" alt="add">
+    </button>
+
+    <div class="card" *ngFor="let workout of (filteredWorkouts$ | async)">
+      <app-workout-card [workout]="workout"></app-workout-card>
+    </div>
+  </div>
+</div>
+
+<div class="not-found" *ngIf="!(filteredWorkouts$ | async)?.length && (isLoading$ | async) === false">
+  Not found
+</div>
+
+<p-confirmDialog [style]="{width: '50vw'}" [baseZIndex]="10000" rejectButtonStyleClass="p-button-text"></p-confirmDialog>
+
+<app-loading  *ngIf="(isLoading$ | async) === true"></app-loading>
+
+<app-empty
+  *ngIf="!(workouts$ | async)?.length && (isLoading$ | async) === false"
+  title="Seems like you don’t have any programs"
+  subtitle="Create new one and it will appear here"
+  buttonName="Create new"
+  (buttonClick)="createWorkout()"
+></app-empty>

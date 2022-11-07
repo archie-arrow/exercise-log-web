@@ -1,0 +1,35 @@
+<form class="filters" [formGroup]="form">
+ <div class="left-side">
+   <div class="form-field">
+     <input
+       formControlName="search"
+       class="p-inputtext-sm"
+       placeholder="Search"
+       type="text"
+       pInputText>
+   </div>
+
+   <div class="form-field">
+     <p-dropdown formControlName="difficulty" placeholder="Difficulty" [showClear]="true" class="p-inputtext-sm" [options]="difficulty" optionLabel="name" optionValue="name">
+     </p-dropdown>
+   </div>
+
+   <div class="field-checkbox">
+     <p-checkbox formControlName="checkbox" [binary]="true" id="binary"></p-checkbox>
+     <label for="binary">With additional equipment</label>
+   </div>
+
+   <button (click)="form.reset()" pButton pRipple type="button">Reset</button>
+ </div>
+  <div class="buttons">
+    <p-selectButton formControlName="sort" [options]="options" optionValue="value" optionLabel="icon">
+      <ng-template let-item>
+        <i [class]="item.icon"></i>
+      </ng-template>
+    </p-selectButton>
+    </div>
+</form>
+
+
+<!--<button (click)="toggleButton()" pButton pRipple type="button" icon="pi pi-sort-alpha-down" class="p-button-rounded p-button-danger p-button-text small active"></button>-->
+<!--<button (click)="toggleButton()" pButton pRipple type="button" icon="pi pi-sort-alpha-up" class="p-button-rounded p-button-danger p-button-text small"></button>-->

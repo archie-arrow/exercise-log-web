@@ -2,7 +2,7 @@
   <app-nav [menuIsOpen]="menuIsOpen"></app-nav>
   <div class="container">
     <app-header (toggle)="toggleMenu()"></app-header>
-    <div class="content">
+    <div class="content" [class.padding]="withPadding">
       <router-outlet></router-outlet>
     </div>
   </div>

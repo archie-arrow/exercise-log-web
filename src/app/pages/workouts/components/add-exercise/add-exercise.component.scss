@@ -1,0 +1,46 @@
+h2 {
+  font-weight: 500;
+  font-size: 1.75rem;
+  line-height: 2.06rem;
+  margin-bottom: 1rem;
+}
+
+.form {
+  margin-bottom: 1.625rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: auto;
+  gap: 1rem;
+
+  .form-field {
+    width: 100%;
+
+    label {
+      font-size: 0.8rem
+    }
+
+    input {
+      margin: 0;
+      height: 2.25rem;
+    }
+  }
+
+  .description {
+    grid-row-start: 2;
+    grid-row-end: 4;
+
+    textarea {
+      resize: none;
+    }
+  }
+
+  .secondary {
+    margin-top: -25px
+  }
+
+  .button {
+    height: 2.25rem;
+  }
+}
+
+

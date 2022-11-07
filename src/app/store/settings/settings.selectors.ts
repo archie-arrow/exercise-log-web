@@ -1,5 +1,5 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
-import { Language } from 'src/app/@shared/interfaces/language-option.interface';
+import { Language } from 'src/app/@core/interfaces/language-option.interface';
 import {
   settingsFeatureKey,
   SettingsStateInterface,
